@@ -1,0 +1,170 @@
+﻿Variable A,Variable B,Pearson,Spearman
+Edad,Edad,1.0,1.0
+Gastos,Gastos,1.0,1.0
+Ingreso,Ingreso,1.0,1.0
+T. respuesta,T. respuesta,1.0,1.0
+Endeudamiento,Endeudamiento,1.0,1.0
+Créd. vigentes,Créd. vigentes,1.0,1.0
+Score,Score,1.0,1.0
+Antigüedad lab.,Antigüedad lab.,1.0,1.0
+Estrato,Estrato,1.0,1.0
+Mora (días),Mora (días),1.0,1.0
+Monto,Monto,1.0,1.0
+Aprob. funcionario,Aprob. funcionario,1.0,1.0
+Plazo,Plazo,1.0,1.0
+Ingreso,Gastos,0.928,0.921
+Gastos,Ingreso,0.928,0.921
+Monto,Plazo,0.597,0.555
+Plazo,Monto,0.597,0.555
+Edad,Antigüedad lab.,0.575,0.574
+Antigüedad lab.,Edad,0.575,0.574
+Monto,Ingreso,0.407,0.515
+Ingreso,Monto,0.407,0.515
+Mora (días),Score,-0.392,-0.586
+Score,Mora (días),-0.392,-0.586
+Gastos,Monto,0.375,0.473
+Monto,Gastos,0.375,0.473
+Score,Endeudamiento,-0.273,-0.265
+Endeudamiento,Score,-0.273,-0.265
+Endeudamiento,Mora (días),0.108,0.164
+Mora (días),Endeudamiento,0.108,0.164
+T. respuesta,Monto,-0.032,-0.024
+Monto,T. respuesta,-0.032,-0.024
+Aprob. funcionario,Score,0.024,0.023
+Score,Aprob. funcionario,0.024,0.023
+Estrato,Antigüedad lab.,-0.018,-0.017
+Antigüedad lab.,Estrato,-0.018,-0.017
+Endeudamiento,Edad,-0.017,-0.015
+Edad,Endeudamiento,-0.017,-0.015
+Estrato,Endeudamiento,0.017,0.016
+Endeudamiento,Estrato,0.017,0.016
+Edad,Score,0.014,0.013
+Score,Edad,0.014,0.013
+Edad,T. respuesta,-0.014,-0.011
+T. respuesta,Edad,-0.014,-0.011
+Plazo,Antigüedad lab.,-0.014,-0.008
+Antigüedad lab.,Plazo,-0.014,-0.008
+Antigüedad lab.,Aprob. funcionario,-0.013,-0.013
+Aprob. funcionario,Antigüedad lab.,-0.013,-0.013
+Antigüedad lab.,Gastos,-0.013,-0.009
+Gastos,Antigüedad lab.,-0.013,-0.009
+T. respuesta,Plazo,-0.012,-0.002
+Plazo,T. respuesta,-0.012,-0.002
+Ingreso,T. respuesta,-0.011,0.001
+T. respuesta,Ingreso,-0.011,0.001
+Endeudamiento,Aprob. funcionario,-0.011,-0.013
+Aprob. funcionario,Endeudamiento,-0.011,-0.013
+Monto,Antigüedad lab.,-0.011,-0.007
+Antigüedad lab.,Monto,-0.011,-0.007
+Estrato,Score,-0.01,-0.012
+Score,Estrato,-0.01,-0.012
+Endeudamiento,Ingreso,-0.01,-0.015
+Ingreso,Endeudamiento,-0.01,-0.015
+Endeudamiento,T. respuesta,-0.01,-0.008
+T. respuesta,Endeudamiento,-0.01,-0.008
+Gastos,Endeudamiento,-0.009,-0.014
+Endeudamiento,Gastos,-0.009,-0.014
+T. respuesta,Gastos,-0.009,0.002
+Gastos,T. respuesta,-0.009,0.002
+Ingreso,Aprob. funcionario,0.009,0.007
+Aprob. funcionario,Ingreso,0.009,0.007
+Plazo,Edad,-0.009,-0.007
+Edad,Plazo,-0.009,-0.007
+Ingreso,Antigüedad lab.,-0.009,-0.002
+Antigüedad lab.,Ingreso,-0.009,-0.002
+Mora (días),Aprob. funcionario,-0.008,-0.011
+Aprob. funcionario,Mora (días),-0.008,-0.011
+Monto,Edad,-0.008,-0.001
+Edad,Monto,-0.008,-0.001
+Ingreso,Créd. vigentes,0.008,-0.004
+Créd. vigentes,Ingreso,0.008,-0.004
+T. respuesta,Antigüedad lab.,-0.008,-0.008
+Antigüedad lab.,T. respuesta,-0.008,-0.008
+Estrato,Mora (días),-0.007,-0.003
+Mora (días),Estrato,-0.007,-0.003
+Créd. vigentes,Gastos,0.007,-0.003
+Gastos,Créd. vigentes,0.007,-0.003
+Gastos,Aprob. funcionario,0.007,0.01
+Aprob. funcionario,Gastos,0.007,0.01
+Score,Créd. vigentes,-0.006,-0.002
+Créd. vigentes,Score,-0.006,-0.002
+Monto,Score,-0.006,0.002
+Score,Monto,-0.006,0.002
+Créd. vigentes,Mora (días),0.006,0.009
+Mora (días),Créd. vigentes,0.006,0.009
+Plazo,Endeudamiento,0.005,0.005
+Endeudamiento,Plazo,0.005,0.005
+Score,Antigüedad lab.,0.005,0.01
+Antigüedad lab.,Score,0.005,0.01
+Score,Gastos,0.005,0.01
+Gastos,Score,0.005,0.01
+Edad,Ingreso,0.005,0.013
+Ingreso,Edad,0.005,0.013
+Estrato,Monto,0.005,-0.004
+Monto,Estrato,0.005,-0.004
+Estrato,Plazo,-0.004,-0.007
+Plazo,Estrato,-0.004,-0.007
+Ingreso,Plazo,0.004,0.001
+Plazo,Ingreso,0.004,0.001
+Créd. vigentes,Endeudamiento,-0.004,-0.002
+Endeudamiento,Créd. vigentes,-0.004,-0.002
+Monto,Aprob. funcionario,0.004,-0.009
+Aprob. funcionario,Monto,0.004,-0.009
+Plazo,Créd. vigentes,-0.004,-0.001
+Créd. vigentes,Plazo,-0.004,-0.001
+Edad,Gastos,-0.004,0.005
+Gastos,Edad,-0.004,0.005
+Créd. vigentes,T. respuesta,0.004,-0.012
+T. respuesta,Créd. vigentes,0.004,-0.012
+T. respuesta,Score,0.003,-0.012
+Score,T. respuesta,0.003,-0.012
+Estrato,Aprob. funcionario,-0.003,-0.006
+Aprob. funcionario,Estrato,-0.003,-0.006
+Mora (días),Edad,-0.003,-0.005
+Edad,Mora (días),-0.003,-0.005
+Plazo,Mora (días),-0.003,-0.001
+Mora (días),Plazo,-0.003,-0.001
+Edad,Aprob. funcionario,-0.003,-0.003
+Aprob. funcionario,Edad,-0.003,-0.003
+Créd. vigentes,Edad,0.002,0.002
+Edad,Créd. vigentes,0.002,0.002
+Gastos,Plazo,0.002,-0.002
+Plazo,Gastos,0.002,-0.002
+Mora (días),Antigüedad lab.,-0.002,-0.004
+Antigüedad lab.,Mora (días),-0.002,-0.004
+Créd. vigentes,Aprob. funcionario,-0.002,0.004
+Aprob. funcionario,Créd. vigentes,-0.002,0.004
+T. respuesta,Estrato,0.002,-0.003
+Estrato,T. respuesta,0.002,-0.003
+Aprob. funcionario,T. respuesta,0.002,-0.009
+T. respuesta,Aprob. funcionario,0.002,-0.009
+Antigüedad lab.,Endeudamiento,-0.002,-0.006
+Endeudamiento,Antigüedad lab.,-0.002,-0.006
+Mora (días),Monto,0.002,0.001
+Monto,Mora (días),0.002,0.001
+Estrato,Créd. vigentes,0.002,0.005
+Créd. vigentes,Estrato,0.002,0.005
+Estrato,Gastos,0.002,0.001
+Gastos,Estrato,0.002,0.001
+Ingreso,Score,0.002,0.007
+Score,Ingreso,0.002,0.007
+Créd. vigentes,Monto,0.001,-0.005
+Monto,Créd. vigentes,0.001,-0.005
+Ingreso,Estrato,0.001,-0.001
+Estrato,Ingreso,0.001,-0.001
+Estrato,Edad,-0.001,0.001
+Edad,Estrato,-0.001,0.001
+Mora (días),Gastos,0.001,0.002
+Gastos,Mora (días),0.001,0.002
+Mora (días),T. respuesta,-0.0,0.005
+T. respuesta,Mora (días),-0.0,0.005
+Aprob. funcionario,Plazo,-0.0,-0.003
+Plazo,Aprob. funcionario,-0.0,-0.003
+Score,Plazo,-0.0,0.004
+Plazo,Score,-0.0,0.004
+Créd. vigentes,Antigüedad lab.,0.0,0.004
+Antigüedad lab.,Créd. vigentes,0.0,0.004
+Ingreso,Mora (días),-0.0,0.005
+Mora (días),Ingreso,-0.0,0.005
+Endeudamiento,Monto,0.0,-0.002
+Monto,Endeudamiento,0.0,-0.002

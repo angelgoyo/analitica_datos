@@ -1,0 +1,12 @@
+{
+  "archivo": "dataset_creditos_sinteticos.csv",
+  "tipo_fuente": "sintético (generador propio, semilla 42)",
+  "regenerado_en_esta_ejecucion": false,
+  "sha256": "e6ea48197a9ae79a2df458b26f686201b46759bcfdb4bc8bc751d6a1056eb6b3",
+  "sha256_coincide_con_el_original": true,
+  "bytes": 1989601,
+  "filas": 9500,
+  "columnas": 32,
+  "codificacion": "UTF-8 con BOM",
+  "separador": ","
+}

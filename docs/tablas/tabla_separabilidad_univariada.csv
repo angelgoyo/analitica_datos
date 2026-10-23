@@ -1,0 +1,10 @@
+﻿Anomalía,Unidad,Variable,Nombre,Origen,AUC
+Monto desproporcionado vs. ingreso,solicitud,ingreso_mensual,Ingreso mensual,Original,0.514
+Monto desproporcionado vs. ingreso,solicitud,monto_solicitado,Monto solicitado,Original,0.948
+Monto desproporcionado vs. ingreso,solicitud,razon_monto_ingreso,Razón monto/ingreso,Derivada,0.951
+Monto desproporcionado vs. ingreso,solicitud,razon_cuota_ingreso,Razón cuota/ingreso,Derivada,0.959
+Tiempo de respuesta excesivo,solicitud,tiempo_respuesta_dias,Tiempo de respuesta,Original,1.0
+Funcionario con aprobación atípica,solicitud,aprobado_bin,Aprobada (0/1),Original,0.642
+Funcionario con aprobación atípica,solicitud,excepcion_bin,Con excepción (0/1),Original,0.704
+Funcionario con aprobación atípica,funcionario,tasa_aprobacion,Tasa de aprobación,Derivada,1.0
+Funcionario con aprobación atípica,funcionario,tasa_excepciones,Tasa de excepciones,Derivada,1.0

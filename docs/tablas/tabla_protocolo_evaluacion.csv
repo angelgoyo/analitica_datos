@@ -1,0 +1,16 @@
+﻿Elemento,Definición,Origen en el informe
+Tarea,Detección no supervisada de anomalías en dos niveles: solicitud (decisiones puntuales) y funcionario (patrón sostenido de aprobación).,"7.2, 7.3"
+Uso de las etiquetas,`es_anomalia` y `tipo_anomalia` se usan solo para evaluar; nunca como variables de entrada ni para ajustar umbrales.,7.5
+Modelo base,"Prueba del valor Z: se marca como atípico el registro con Z ≥ 3 en alguna variable (Aggarwal, 2017, p. 6).","7.5, Tabla 1"
+Modelos comparados,"Isolation Forest, DBSCAN y autoencoder, sobre las mismas características que el modelo base.","7.5, Tabla 1"
+Métricas,"Precision, recall y F1-score de la clase anómala, en conjunto y por tipo de anomalía. No se reporta exactitud global.",7.5
+Piso de referencia,"Un clasificador que marca todo como anómalo obtiene precision = 0,0797 y F1 = 0,148; ningún modelo se considera útil si no lo supera con claridad.",Calculado en la sección 6
+Contaminación,"Análisis de sensibilidad con tres valores del parámetro: 5 %, 7,5 % y 10 %; no se fija en la tasa exacta inyectada.",7.5
+Réplicas,30 ejecuciones del generador con semillas distintas; el dataset principal usa la semilla 42.,7.5
+Prueba estadística,"Prueba de rangos con signo de Wilcoxon sobre el F1 de las réplicas (Demšar, 2006, pp. 7-8): cada modelo frente al base (H1) y nivel funcionario frente a nivel solicitud (H2).","7.3, 7.5"
+Significancia,"α = 0,05 con corrección de Bonferroni por 3 comparaciones (0,05/3 ≈ 0,017).",7.5
+Criterio de decisión,"H1: se rechaza H0 si al menos un modelo supera al base con p < 0,017 y mayor F1 mediano. H2: igual, comparando funcionario con solicitud.",7.3 (propuesta de umbral operativo)
+Partición de los datos,"Propuesta: partición 70/30 estratificada por la etiqueta de evaluación, con semilla 42, a nivel de solicitud. A nivel de funcionario no se particiona (solo hay 6 funcionarios atípicos): los perfiles se calculan con entrenamiento y se evalúan sobre los 220 funcionarios, declarando la limitación.","Propuesta, por confirmar con el tutor"
+Prevención de fuga de información,"Imputación, escalado, codificación y estadísticos de pares (media y desviación del grupo) se ajustan solo con el conjunto de entrenamiento, dentro de un `Pipeline` de scikit-learn.",Esta entrega: ver sección 4
+Contraste con fraude documentado,Cada tipo de anomalía inyectada se contrasta con una modalidad de fraude descrita en la literatura y en los informes de la ACFE (2026).,7.5
+Reproducibilidad,"Semillas fijas, versiones de bibliotecas en `requirements.txt` y huella SHA-256 de los datos.",7.6

@@ -1,0 +1,7 @@
+﻿Paso,Filas,Columnas,Nulos,Filas duplicadas,Nota
+1. Extracción (lectura del CSV),9500,32,0,0,Sin conversiones
+2. Tipado (fecha y categorías),9500,32,0,0,15 columnas de texto pasan a category; 1 pasa a datetime
+3. Normalización de texto,9500,32,0,0,Celdas de texto modificadas: 0
+4. Duplicados y faltantes,9500,32,0,0,Duplicados eliminados: 0; id repetidos: 0; nulos: 0
+5. Reglas de coherencia (banderas),9500,38,0,0,Registros con alguna bandera: 65; ninguno eliminado
+6. Separación de etiquetas,9500,36,0,0,2 columnas de etiqueta pasan a un archivo aparte

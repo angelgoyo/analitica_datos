@@ -1,0 +1,10 @@
+﻿Indicador,Antes del ETL,Después del ETL,Observación
+Registros (filas),9500,9500,Ninguno se elimina
+Columnas,32,36,"−2 etiquetas, +5 banderas de regla y +1 bandera global"
+Valores faltantes,0,0,No había faltantes: no se imputa
+Filas duplicadas,0,0,No había duplicados
+Identificadores repetidos,0,0,Clave única verificada
+Columnas de texto sin tipo adecuado,16,0,Fecha → datetime; 15 variables → category
+Celdas de texto modificadas por la normalización,0,0,No fue necesaria ninguna corrección
+Columnas de etiqueta dentro de la matriz de entrada,2,0,Etiquetas en archivo aparte
+Registros con alguna bandera de coherencia,No evaluado,65,Se conservan marcados

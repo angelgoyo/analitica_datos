@@ -1,0 +1,395 @@
+{
+  "version_codigo": "v0.2",
+  "semilla": 42,
+  "interpretaciones": {
+    "fig_4_0": {
+      "titulo": "Flujo de adquisición, ETL y construcción de variables",
+      "texto": "El proceso parte de un generador con semilla fija y de un archivo original de 9.500 filas y 32 columnas cuya huella SHA-256 se verifica antes de continuar. Los pasos 3 a 6 ajustan tipos, texto, duplicados, faltantes y reglas de coherencia sin eliminar registros; el paso 7 aparta las etiquetas y el paso 8 entrega 9.500 registros listos para la construcción de variables."
+    },
+    "fig_4_1": {
+      "titulo": "Calidad del dataset antes y después del ETL",
+      "texto": "El conjunto de 9.500 solicitudes no tenía valores faltantes ni duplicados, por lo que el ETL no eliminó ni imputó ningún registro. Los cambios fueron de forma: 16 columnas de texto recibieron un tipo adecuado y las 2 columnas de etiqueta salieron de la matriz de entrada. La regla de coherencia más incumplida fue «gastos mensuales mayores que el ingreso mensual» con 65 registros (0,68 %); se conservan marcados porque pueden reflejar comportamiento que interesa detectar."
+    },
+    "fig_5_1": {
+      "titulo": "Distribución de seis variables numéricas del dataset",
+      "texto": "El ingreso y el monto solicitado están fuertemente sesgados a la derecha (asimetría de 1,88 y 1,53); por eso se muestran en escala logarítmica y la mediana (2.915.352 y 16.187.447 COP) resulta más representativa que la media. El tiempo de respuesta tiene mediana de 8 días y una cola larga que llega a 69 días. La mora acumulada es muy asimétrica (asimetría 1,84): la mediana es de 13 días y solo el 6,6 % de los solicitantes supera los 100."
+    },
+    "fig_5_2": {
+      "titulo": "Composición del dataset según seis variables categóricas",
+      "texto": "El 71,5 % de las solicitudes fue aprobado, el 17,3 % rechazado y el 11,2 % sigue en estudio, de modo que la aprobación es la decisión habitual. Bogotá concentra el 27,6 % de las solicitudes y el crédito de consumo es el producto más frecuente (46,1 %). La variable «tipo de empleo» mezcla categorías que se solapan (Formal, Privado, Público, Informal e Independiente); se conserva como se generó y se documenta como limitación del diccionario."
+    },
+    "fig_6_1": {
+      "titulo": "Variable de interés: desbalance entre registros normales y anómalos",
+      "texto": "El 7,97 % de las solicitudes (757 de 9.500) es anómalo, es decir, hay 11,5 registros normales por cada anómalo; esto se ubica dentro del rango de 5 a 10 % definido en el diseño. Los tres tipos de anomalía tienen tamaños casi iguales (249 a 254 registros), de modo que ningún tipo domina la evaluación. Un modelo que marcara todo como normal tendría una exactitud de 92,0 % sin detectar nada; por eso la evaluación usa precision, recall y F1 de la clase anómala, y un modelo que marcara todo como anómalo obtendría un F1 de apenas 0,15, valor que sirve de piso de referencia."
+    },
+    "fig_6_2": {
+      "titulo": "Anomalías por funcionario",
+      "texto": "Seis de los 220 funcionarios tienen el 100 % de sus solicitudes marcadas como anómalas, y ellos reúnen las 254 anomalías de tipo «funcionario con aprobación atípica». Las anomalías de monto y de tiempo, en cambio, se reparten entre los funcionarios (mediana de 2 por funcionario y máximo de 9). Esta diferencia justifica el diseño en dos niveles de análisis: la solicitud para las anomalías puntuales y el funcionario para el patrón sostenido de aprobación."
+    },
+    "fig_6_3": {
+      "titulo": "Correlación entre variables numéricas del dataset",
+      "texto": "Con Pearson, los pares con |r| ≥ 0,3 son: Ingreso–Gastos (r = 0,93); Monto–Plazo (r = 0,60); Edad–Antigüedad lab. (r = 0,58); Ingreso–Monto (r = 0,41). Ingreso–Gastos están casi duplicadas (r = 0,93), lo que anticipa un VIF elevado en ellas. Spearman, que mide relaciones monótonas y resiste a los valores extremos, ordena los pares de forma parecida; la mayor diferencia entre ambos coeficientes aparece en Score–Mora (días) (-0,39 frente a -0,59), señal de una relación monótona pero no lineal. Fuera de los pares citados las correlaciones son débiles, de modo que el resto de las variables aporta información distinta."
+    },
+    "fig_6_4": {
+      "titulo": "VIF de las variables numéricas",
+      "texto": "El VIF máximo es 7,57 (Ingreso); Ingreso y Gastos superan el umbral de 5, coherente con su correlación, y ninguna alcanza 10. La multicolinealidad es moderada y localizada, no severa. El resto de variables está por debajo de 2,1. No se elimina ninguna variable por este criterio en esta fase; la selección final queda para el Pipeline de la etapa de modelado, donde se puede reemplazar el par ingreso–gastos por la razón gasto/ingreso."
+    },
+    "fig_6_5": {
+      "titulo": "Series mensuales: tendencia y estacionariedad",
+      "texto": "La prueba ADF rechaza la raíz unitaria en las 5 series mensuales (78 meses), y 3 de ellas son estacionarias según ADF y KPSS en conjunto. En 2 series (tiempo de respuesta medio (días); tasa de anomalía) la prueba KPSS rechaza la estacionariedad por poco (p entre 0,037 y 0,041). Solo «solicitudes por mes» muestra una tendencia monótona débil (ρ = 0,24; p = 0,032). La media mensual de solicitudes es 121,8 y la tasa de anomalía mensual promedia 8,0 %. No hay evidencia de cambios de nivel marcados; las desviaciones son leves, de modo que bastará con incluir mes y año como variables de control en el Pipeline de la etapa de modelado."
+    },
+    "fig_7_1": {
+      "titulo": "Separabilidad univariada de cada tipo de anomalía",
+      "texto": "Para la anomalía de monto, el ingreso solo no separa los casos (AUC 0,51), el monto sí (AUC 0,95) y las razones derivadas apenas lo mejoran (0,95 y 0,96); además, 444 solicitudes normales superan una razón monto/ingreso de 25 (el límite inferior con que se inyectó la anomalía) y 77 anomalías de monto quedan por debajo de ese valor por el tope de 100 millones de pesos, lo que impide una separación completa. Para el patrón de funcionario, la aprobación y la excepción de cada solicitud separan poco (AUC 0,64 y 0,70), pero sus tasas por funcionario lo hacen por completo (1,00 y 1,00): ahí está el aporte principal de la ingeniería de características. El tiempo de respuesta ya separa por completo su anomalía con la variable original (AUC 1,00; el mayor tiempo normal es de 26 días y el menor anómalo de 35). Esta es una descripción del dataset sintético, no el desempeño de un modelo, y no se usó para elegir variables."
+    },
+    "fig_7_2": {
+      "titulo": "Perfil de los funcionarios evaluadores",
+      "texto": "Los seis funcionarios con aprobación atípica aprueban entre 97,4 % y 100,0 % de sus solicitudes y usan excepciones a políticas en 34,7 % a 61,9 % de ellas; entre los demás, la tasa de aprobación máxima es 88,9 % y la de excepciones 19,6 %. Frente al grupo de pares, 6 de esos seis funcionarios tienen un puntaje Z de aprobación de 3 o más, y ningún otro funcionario lo alcanza. Los indicadores por funcionario hacen visible un patrón que no se aprecia solicitud por solicitud, base del nivel de análisis de funcionario (H2); la separación es nítida porque las anomalías se inyectaron con valores extremos, y en datos reales se espera más solapamiento, por lo que los resultados del objetivo 2 se leerán como un escenario favorable."
+    }
+  },
+  "entorno": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "statsmodels": "0.15.0",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2",
+    "python": "3.13.16"
+  },
+  "adquisicion": {
+    "archivo": "dataset_creditos_sinteticos.csv",
+    "tipo_fuente": "sintético (generador propio, semilla 42)",
+    "regenerado_en_esta_ejecucion": false,
+    "sha256": "e6ea48197a9ae79a2df458b26f686201b46759bcfdb4bc8bc751d6a1056eb6b3",
+    "sha256_coincide_con_el_original": true,
+    "bytes": 1989601,
+    "filas": 9500,
+    "columnas": 32,
+    "codificacion": "UTF-8 con BOM",
+    "separador": ","
+  },
+  "regeneracion": {
+    "huella": "e6ea48197a9ae79a2df458b26f686201b46759bcfdb4bc8bc751d6a1056eb6b3",
+    "coincide_con_el_original": true
+  },
+  "ficha": {
+    "Nombre": "Solicitudes de crédito sintéticas con anomalías controladas (dataset_creditos_sinteticos.csv)",
+    "Tipo de fuente": "Sintético. Generado con `src/generar_dataset.py`; no proviene de `datos.gov.co`.",
+    "Justificación del origen": "No existen datos públicos de fraude interno en aprobación de créditos; el acceso a datos reales está restringido por la Ley 1581 de 2012.",
+    "Semilla": "42",
+    "Unidad de observación": "Solicitud de crédito",
+    "Unidad de análisis": "Funcionario evaluador (y solicitud, en dos niveles de análisis)",
+    "Registros": "9.500",
+    "Columnas": "32 (30 variables + 2 de etiqueta)",
+    "Funcionarios evaluadores": "220",
+    "Periodo cubierto": "2020-01-01 a 2026-06-29",
+    "Etiquetas de evaluación": "es_anomalia (0/1) y tipo_anomalia; 757 registros anómalos (7,97 %)",
+    "Tipos de anomalía inyectada": "Monto desproporcionado vs. ingreso; funcionario con aprobación atípica; tiempo de respuesta excesivo",
+    "Valores faltantes": "0",
+    "Formato": "CSV, UTF-8 con BOM, separador coma",
+    "Huella SHA-256": "e6ea48197a9ae79a2df458b26f686201b46759bcfdb4bc8bc751d6a1056eb6b3",
+    "Datos personales": "Ninguno: no hay personas reales (identificadores numéricos simulados).",
+    "Licencia propuesta": "Código MIT; datos CC BY 4.0 (por confirmar por el equipo).",
+    "Limitaciones": "Las anomalías dependen de cómo se definieron al generar los datos; los resultados no se extrapolan a datos reales sin validación."
+  },
+  "n_variables_diccionario": 32,
+  "etl": {
+    "filas_antes": 9500,
+    "filas_despues": 9500,
+    "columnas_antes": 32,
+    "columnas_despues": 36,
+    "nulos": 0,
+    "duplicados": 0,
+    "id_repetidos": 0,
+    "banderas": {
+      "flag_gasto_mayor_ingreso": 65,
+      "flag_numerico_fuera_rango": 0,
+      "flag_categoria_fuera_catalogo": 0,
+      "flag_antiguedad_incoherente": 0,
+      "flag_fecha_posterior_generacion": 0
+    },
+    "con_alguna_bandera": 65
+  },
+  "resumen_numerico": {
+    "edad": {
+      "Media": 37.012,
+      "Mediana": 37.0,
+      "Asimetría": 0.16
+    },
+    "ingreso_mensual": {
+      "Media": 3404782.301,
+      "Mediana": 2915352.0,
+      "Asimetría": 1.875
+    },
+    "gastos_mensuales": {
+      "Media": 2293865.429,
+      "Mediana": 1939910.0,
+      "Asimetría": 1.84
+    },
+    "estrato_vivienda": {
+      "Media": 3.16,
+      "Mediana": 3.0,
+      "Asimetría": 0.434
+    },
+    "antiguedad_laboral": {
+      "Media": 9.261,
+      "Mediana": 8.0,
+      "Asimetría": 0.741
+    },
+    "score_crediticio": {
+      "Media": 650.343,
+      "Mediana": 649.0,
+      "Asimetría": 0.038
+    },
+    "numero_creditos_vigentes": {
+      "Media": 2.194,
+      "Mediana": 2.0,
+      "Asimetría": 0.699
+    },
+    "nivel_endeudamiento": {
+      "Media": 0.854,
+      "Mediana": 0.86,
+      "Asimetría": -0.077
+    },
+    "historial_mora_dias": {
+      "Media": 29.927,
+      "Mediana": 13.0,
+      "Asimetría": 1.843
+    },
+    "monto_solicitado": {
+      "Media": 27516342.445,
+      "Mediana": 16187447.0,
+      "Asimetría": 1.531
+    },
+    "plazo_solicitado_meses": {
+      "Media": 26.579,
+      "Mediana": 23.0,
+      "Asimetría": 0.737
+    },
+    "tiempo_respuesta_dias": {
+      "Media": 9.305,
+      "Mediana": 8.0,
+      "Asimetría": 3.836
+    },
+    "creditos_aprobados_funcionario": {
+      "Media": 31.408,
+      "Mediana": 31.0,
+      "Asimetría": 0.281
+    }
+  },
+  "clases": {
+    "anomalos": 757,
+    "normales": 8743,
+    "prevalencia": 0.07968421052631579,
+    "razon_normal_anomalo": 11.549537648612946,
+    "por_tipo": {
+      "Ninguna": 8743,
+      "Monto desproporcionado vs. ingreso": 249,
+      "Funcionario con aprobación atípica": 254,
+      "Tiempo de respuesta excesivo": 254
+    },
+    "funcionarios_100pct_anomalos": 6,
+    "f1_si_todo_se_marca_anomalo": 0.14760651262552402,
+    "exactitud_si_todo_se_marca_normal": 0.9203157894736842
+  },
+  "correlaciones": {
+    "pares_pearson_ge_0_3": [
+      [
+        "Ingreso",
+        "Gastos",
+        0.928
+      ],
+      [
+        "Monto",
+        "Plazo",
+        0.597
+      ],
+      [
+        "Edad",
+        "Antigüedad lab.",
+        0.575
+      ],
+      [
+        "Ingreso",
+        "Monto",
+        0.407
+      ],
+      [
+        "Score",
+        "Mora (días)",
+        -0.392
+      ],
+      [
+        "Gastos",
+        "Monto",
+        0.375
+      ]
+    ],
+    "pares_spearman_ge_0_3": [
+      [
+        "Ingreso",
+        "Gastos",
+        0.921
+      ],
+      [
+        "Score",
+        "Mora (días)",
+        -0.586
+      ],
+      [
+        "Edad",
+        "Antigüedad lab.",
+        0.574
+      ],
+      [
+        "Monto",
+        "Plazo",
+        0.555
+      ],
+      [
+        "Ingreso",
+        "Monto",
+        0.515
+      ],
+      [
+        "Gastos",
+        "Monto",
+        0.473
+      ]
+    ],
+    "mayor_diferencia_pearson_spearman": [
+      "Score",
+      "Mora (días)",
+      0.194
+    ]
+  },
+  "vif": {
+    "ingreso_mensual": 7.57,
+    "gastos_mensuales": 7.21,
+    "monto_solicitado": 2.09,
+    "plazo_solicitado_meses": 1.74,
+    "edad": 1.5,
+    "antiguedad_laboral": 1.5,
+    "score_crediticio": 1.26,
+    "historial_mora_dias": 1.18,
+    "nivel_endeudamiento": 1.08,
+    "tiempo_respuesta_dias": 1.0,
+    "estrato_vivienda": 1.0,
+    "creditos_aprobados_funcionario": 1.0,
+    "numero_creditos_vigentes": 1.0
+  },
+  "estacionariedad": {
+    "Solicitudes por mes": {
+      "p_adf": 0.0,
+      "p_kpss": 0.0782,
+      "rho": 0.244,
+      "p_rho": 0.0317,
+      "conclusion": "Estacionaria"
+    },
+    "Tiempo de respuesta medio (días)": {
+      "p_adf": 0.0,
+      "p_kpss": 0.0409,
+      "rho": -0.176,
+      "p_rho": 0.1233,
+      "conclusion": "Resultado mixto"
+    },
+    "Monto solicitado medio (millones COP)": {
+      "p_adf": 0.0,
+      "p_kpss": 0.1,
+      "rho": -0.012,
+      "p_rho": 0.9154,
+      "conclusion": "Estacionaria"
+    },
+    "Tasa de aprobación": {
+      "p_adf": 0.0,
+      "p_kpss": 0.1,
+      "rho": 0.12,
+      "p_rho": 0.2944,
+      "conclusion": "Estacionaria"
+    },
+    "Tasa de anomalía": {
+      "p_adf": 0.0,
+      "p_kpss": 0.0373,
+      "rho": -0.195,
+      "p_rho": 0.0868,
+      "conclusion": "Resultado mixto"
+    }
+  },
+  "n_meses": 78,
+  "features": {
+    "columnas_matriz_solicitud": 47,
+    "variables_derivadas_solicitud": 11,
+    "funcionarios": 220,
+    "indicadores_perfil": 11,
+    "columnas_z": 5,
+    "funcionarios_atipicos": 6
+  },
+  "auc_univariado": {
+    "ingreso_mensual|solicitud": 0.514,
+    "monto_solicitado|solicitud": 0.948,
+    "razon_monto_ingreso|solicitud": 0.951,
+    "razon_cuota_ingreso|solicitud": 0.959,
+    "tiempo_respuesta_dias|solicitud": 1.0,
+    "aprobado_bin|solicitud": 0.642,
+    "excepcion_bin|solicitud": 0.704,
+    "tasa_aprobacion|funcionario": 1.0,
+    "tasa_excepciones|funcionario": 1.0
+  },
+  "separabilidad": {
+    "tiempo_max_normal": 26,
+    "tiempo_min_anomalo": 35,
+    "razon_min_anomalia_monto": 6.97,
+    "normales_con_razon_mayor_o_igual_25": 444,
+    "anomalias_monto_con_razon_menor_25": 77
+  },
+  "perfil": {
+    "tasa_aprob_atipicos_min": 0.974,
+    "tasa_aprob_normales_max": 0.889,
+    "tasa_exc_atipicos_min": 0.347,
+    "tasa_exc_normales_max": 0.196,
+    "z_aprob_ge3_total": 6,
+    "z_aprob_ge3_atipicos": 6,
+    "tasa_exc_media_normales": 0.079
+  },
+  "protocolo_filas": 15,
+  "bitacora_filas": 12,
+  "huellas_salidas": {
+    "solicitudes_limpias.csv": "b2dfb61204a6b17bd14253495b716c3b25f58b8a1758a07e4365342b26f1e638",
+    "etiquetas_evaluacion.csv": "eaa22464d6cb15493987c6a1d33353fda6b32c03019985541e83d42662fc49a3",
+    "matriz_solicitud.csv": "b68b6803d10df773bba098fc044d0d50b31963ecac69c1dbc9668a1eed7855a4",
+    "perfil_funcionario.csv": "92cc3c3282c797017e90032aaa6475ea41c0ae5b377397465d247309e8219263",
+    "etiquetas_evaluacion_funcionario.csv": "bf9a9708f9d2560314f0c375f9c48646b6b9f21b21085b13009151b218ea12c8"
+  },
+  "figuras_generadas": [
+    "fig_4_0_flujo_etl.png",
+    "fig_4_1_calidad_etl.png",
+    "fig_5_1_distribuciones_numericas.png",
+    "fig_5_2_distribuciones_categoricas.png",
+    "fig_6_1_variable_objetivo.png",
+    "fig_6_2_anomalias_por_funcionario.png",
+    "fig_6_3_correlaciones.png",
+    "fig_6_4_vif.png",
+    "fig_6_5_series_temporales.png",
+    "fig_7_1_valor_variables_derivadas.png",
+    "fig_7_2_perfil_funcionario.png",
+    "fig_8_0_fases_proyecto.png"
+  ],
+  "tablas_generadas": [
+    "tabla_bitacora_decisiones.csv",
+    "tabla_clases_objetivo.csv",
+    "tabla_correlaciones_pares.csv",
+    "tabla_diccionario_datos.csv",
+    "tabla_estacionariedad.csv",
+    "tabla_etl_antes_despues.csv",
+    "tabla_etl_pasos.csv",
+    "tabla_ficha_dataset.csv",
+    "tabla_perfil_funcionario_resumen.csv",
+    "tabla_protocolo_evaluacion.csv",
+    "tabla_reglas_calidad.csv",
+    "tabla_resumen_numerico.csv",
+    "tabla_separabilidad_univariada.csv",
+    "tabla_variables_derivadas.csv",
+    "tabla_vif.csv"
+  ]
+}

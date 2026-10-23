@@ -1,0 +1,19 @@
+﻿Campo,Valor
+Nombre,Solicitudes de crédito sintéticas con anomalías controladas (dataset_creditos_sinteticos.csv)
+Tipo de fuente,Sintético. Generado con `src/generar_dataset.py`; no proviene de `datos.gov.co`.
+Justificación del origen,No existen datos públicos de fraude interno en aprobación de créditos; el acceso a datos reales está restringido por la Ley 1581 de 2012.
+Semilla,42
+Unidad de observación,Solicitud de crédito
+Unidad de análisis,"Funcionario evaluador (y solicitud, en dos niveles de análisis)"
+Registros,9.500
+Columnas,32 (30 variables + 2 de etiqueta)
+Funcionarios evaluadores,220
+Periodo cubierto,2020-01-01 a 2026-06-29
+Etiquetas de evaluación,"es_anomalia (0/1) y tipo_anomalia; 757 registros anómalos (7,97 %)"
+Tipos de anomalía inyectada,Monto desproporcionado vs. ingreso; funcionario con aprobación atípica; tiempo de respuesta excesivo
+Valores faltantes,0
+Formato,"CSV, UTF-8 con BOM, separador coma"
+Huella SHA-256,e6ea48197a9ae79a2df458b26f686201b46759bcfdb4bc8bc751d6a1056eb6b3
+Datos personales,Ninguno: no hay personas reales (identificadores numéricos simulados).
+Licencia propuesta,Código MIT; datos CC BY 4.0 (por confirmar por el equipo).
+Limitaciones,Las anomalías dependen de cómo se definieron al generar los datos; los resultados no se extrapolan a datos reales sin validación.

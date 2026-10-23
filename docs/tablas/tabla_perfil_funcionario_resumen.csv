@@ -1,0 +1,6 @@
+﻿Indicador,Media,Desv. estándar,Mín.,Mediana,Máx.
+tasa_aprobacion,0.716,0.082,0.486,0.708,1.0
+tasa_excepciones,0.09,0.082,0.0,0.078,0.619
+monto_promedio,27506414.864,4191147.053,17480002.61,27454676.602,40636310.682
+razon_monto_ingreso_prom,8.614,1.229,5.629,8.538,11.969
+tiempo_resp_prom,9.31,1.357,6.559,9.165,14.432

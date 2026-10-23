@@ -1,0 +1,18 @@
+﻿Variable,Nivel,Definición,Para qué sirve
+razon_monto_ingreso,Solicitud,Monto solicitado / ingreso mensual,Mide qué tan grande es el crédito frente a la capacidad de ingreso; apunta a montos desproporcionados.
+razon_gasto_ingreso,Solicitud,Gastos mensuales / ingreso mensual,Mide la holgura financiera del solicitante.
+capacidad_residual,Solicitud,Ingreso − gastos (COP),Capacidad de pago disponible; negativa si los gastos superan el ingreso.
+cuota_estimada,Solicitud,"Monto / plazo en meses (COP, sin intereses)",Aproxima el pago mensual exigido.
+razon_cuota_ingreso,Solicitud,Cuota estimada / ingreso mensual,Carga de la cuota sobre el ingreso.
+razon_cuota_capacidad,Solicitud,Cuota estimada / capacidad residual (solo si es positiva),Carga de la cuota sobre la capacidad real; vacía si no hay capacidad.
+excepcion_bin,Solicitud,1 si hubo excepción a políticas internas,"Codificación binaria directa, sin parámetros aprendidos."
+aprobado_bin / decidido_bin,Solicitud,1 si Aprobado / 1 si Aprobado o Rechazado,Insumo para las tasas por funcionario.
+"mes, anio",Solicitud,Componentes de la fecha,Permiten controlar la estacionalidad.
+tasa_aprobacion,Funcionario,Aprobadas / atendidas,Frecuencia con que el funcionario aprueba.
+tasa_aprobacion_decididas,Funcionario,Aprobadas / (aprobadas + rechazadas),Versión que excluye las solicitudes aún en estudio.
+tasa_excepciones,Funcionario,Solicitudes con excepción / atendidas,Uso de excepciones a políticas internas.
+"monto_promedio, monto_mediano",Funcionario,Promedio y mediana del monto de sus solicitudes,Nivel de los montos que aprueba o evalúa.
+razon_monto_ingreso_prom,Funcionario,Promedio de monto / ingreso,Montos relativos al ingreso de sus solicitantes.
+"tiempo_resp_prom, tiempo_resp_p90",Funcionario,Media y percentil 90 del tiempo de respuesta,Rapidez y colas de demora.
+"score_prom, mora_prom",Funcionario,Promedio de score y de mora de los solicitantes,Perfil de riesgo de los solicitantes que atiende.
+z_*,Funcionario,(indicador − media de pares) / desviación de pares,Desviación frente al grupo; la referencia se ajusta solo con entrenamiento en el objetivo 2.

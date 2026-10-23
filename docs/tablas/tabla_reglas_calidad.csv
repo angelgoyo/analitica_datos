@@ -1,0 +1,6 @@
+﻿Regla de calidad,Registros que la incumplen,Tratamiento,% del total
+Gastos mensuales mayores que el ingreso mensual,65,Se conserva y se marca,0.68
+Alguna variable numérica fuera del rango válido del diccionario,0,Se conserva y se marca,0.0
+Categoría fuera del catálogo del diccionario,0,Se conserva y se marca,0.0
+Antigüedad laboral mayor que la edad menos 15 años (criterio del equipo),0,Se conserva y se marca,0.0
+Fecha de solicitud posterior a la fecha de generación del dataset,0,Se conserva y se marca,0.0

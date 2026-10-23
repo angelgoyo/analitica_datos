@@ -1,0 +1,33 @@
+﻿Variable,Rol,Descripción,Tipo de dato,Valores válidos,Observado,Nulos
+id_solicitante,Identificador,Número consecutivo de la solicitud (clave única).,Entero (identificador),Entero positivo único,1 a 9 500,0
+edad,Socioeconómica,Edad del solicitante en años cumplidos.,Entero,18 a 70,18 a 70,0
+genero,Socioeconómica,Género declarado por el solicitante.,Categórica,Femenino | Masculino,2 categorías,0
+nivel_educativo,Socioeconómica,Máximo nivel educativo alcanzado.,Categórica,Primaria | Secundaria | Técnico | Universitario | Posgrado,5 categorías,0
+estado_civil,Socioeconómica,Estado civil del solicitante.,Categórica,Soltero | Casado | Unión libre | Divorciado | Viudo,5 categorías,0
+ingreso_mensual,Socioeconómica,"Ingreso mensual declarado, en pesos colombianos (COP).",Entero,1.000.000 a 20.000.000,1e+06 a 2e+07,0
+gastos_mensuales,Socioeconómica,"Gastos mensuales declarados, en COP.",Entero,500.000 a 20.000.000,5e+05 a 1.346e+07,0
+estrato_vivienda,Socioeconómica,Estrato socioeconómico de la vivienda (1 a 6).,Entero,1 a 6,1 a 6,0
+propiedad_vivienda,Socioeconómica,Indica si el solicitante es propietario de su vivienda.,Categórica,Sí | No,2 categorías,0
+tipo_empleo,Socioeconómica,Modalidad de empleo del solicitante (las categorías del catálogo no son mutuamente excluyentes; se conservan tal como se generaron).,Categórica,Formal | Independiente | Privado | Informal | Público,5 categorías,0
+antiguedad_laboral,Socioeconómica,Años de antigüedad en el empleo actual.,Entero,0 a 30,0 a 30,0
+historial_crediticio,Crediticia,Calificación cualitativa del historial de crédito.,Categórica,Bueno | Regular | Malo,3 categorías,0
+verificacion_centrales_riesgo,Crediticia,Resultado de la consulta en centrales de riesgo.,Categórica,Aprobado | En seguimiento | Reportado,3 categorías,0
+score_crediticio,Crediticia,Puntaje crediticio numérico (0 a 1.000).,Entero,0 a 1.000,244 a 1 000,0
+numero_creditos_vigentes,Crediticia,Cantidad de créditos vigentes del solicitante.,Entero,0 a 10,0 a 9,0
+nivel_endeudamiento,Crediticia,"Índice de endeudamiento del solicitante (0,1 a 1,5); se generó a partir del score, no del ingreso.",Decimal,0.1 a 1.5,0.1 a 1.5,0
+historial_mora_dias,Crediticia,Días de mora acumulados en el historial.,Entero,0 a 180,0 a 180,0
+garantias_ofrecidas,Crediticia,Tipo de garantía ofrecida.,Categórica,Ninguna | Codeudor | Inmueble | Vehículo,4 categorías,0
+tipo_producto_financiero,Solicitud,Producto de crédito solicitado.,Categórica,Consumo | Libre inversión | Hipotecario | Vehículo,4 categorías,0
+monto_solicitado,Solicitud,"Monto solicitado, en COP.",Entero,500.000 a 100.000.000,5.346e+05 a 1e+08,0
+plazo_solicitado_meses,Solicitud,Plazo solicitado en meses.,Entero,6 a 60,6 a 60,0
+estado_aprobacion,Organizacional,"Decisión sobre la solicitud (Aprobado, Rechazado o En estudio).",Categórica,Aprobado | Rechazado | En estudio,3 categorías,0
+tiempo_respuesta_dias,Organizacional,Días transcurridos entre la solicitud y la respuesta.,Entero,1 a 70,1 a 69,0
+id_funcionario_evaluador,Organizacional,"Identificador del funcionario que evalúa (simulado, 1 a 220).",Entero,Entero positivo único,1 a 220,0
+creditos_aprobados_funcionario,Organizacional,Total de créditos aprobados por el funcionario en todo el periodo (se repite en todas sus filas).,Entero,0 a 100,17 a 48,0
+excepciones_politicas_internas,Organizacional,Indica si la aprobación implicó una excepción a políticas internas.,Categórica,Sí | No,2 categorías,0
+canal_solicitud,Organizacional,Canal por el que llegó la solicitud.,Categórica,Digital | Sucursal física | Asesor comercial,3 categorías,0
+segmento_cliente,Organizacional,Segmento comercial del cliente.,Categórica,Nuevo | Recurrente | Preferencial,3 categorías,0
+region,Organizacional,Región de la solicitud.,Categórica,Bogotá | Antioquia | Valle | Costa Caribe | Santander | Eje Cafetero | Otras,7 categorías,0
+fecha_solicitud,Temporal,Fecha de la solicitud (AAAA-MM-DD).,Fecha,2020-01-01 a 2026-12-31 (no posterior a la fecha de generación),2020-01-01 a 2026-06-29,0
+es_anomalia,Etiqueta (solo evaluación),1 si el registro corresponde a una anomalía inyectada; 0 en otro caso.,Binaria (0/1),0 | 1,0 a 1,0
+tipo_anomalia,Etiqueta (solo evaluación),Tipo de anomalía inyectada o «Ninguna».,Categórica,Ninguna | Monto desproporcionado vs. ingreso | Funcionario con aprobación atípica | Tiempo de respuesta excesivo,4 categorías,0
