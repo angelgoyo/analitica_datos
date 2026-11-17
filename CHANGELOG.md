@@ -36,8 +36,8 @@
 
 ### Pendientes de esta versión
 
-- El `.pbix` y las capturas del tablero las elabora el equipo; con ellos se completa la columna de Power BI de la validación de totales.
-- Ejecución de los cuadernos 02 y 03 en Colab por el equipo para confirmar la reproducción en ese entorno.
+- El `.pbix` y las capturas del tablero están en elaboración; con ellos se completa la columna de Power BI de la validación de totales.
+- Confirmar la reproducción de los cuadernos 02 y 03 en Google Colab.
 
 ### Publicación
 

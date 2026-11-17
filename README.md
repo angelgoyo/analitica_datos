@@ -11,7 +11,7 @@ Código y datos del proyecto de grado **«Modelo analítico para la detección d
 |---|---|---|---|
 | 1. Dataset sintético, ETL, EDA e ingeniería de características | `01_objetivo1_dataset_ETL_EDA_FE.ipynb` | 8.1 a 8.4 | Entregado en v0.2 |
 | 2. Modelado, validación y optimización | `02_objetivo2_modelos.ipynb` | 8.5 y 8.6 | Completo en v0.3 |
-| 3. Tablero: puntaje, SHAP, modelo dimensional, indicadores y validación de totales | `03_objetivo3_tablero.ipynb` | 8.7 | Completo en el código; el `.pbix` y la columna de Power BI de la validación de totales los completa el equipo |
+| 3. Tablero: puntaje, SHAP, modelo dimensional, indicadores y validación de totales | `03_objetivo3_tablero.ipynb` | 8.7 | Completo en el código; el archivo `.pbix` y la columna de Power BI de la validación de totales están en elaboración |
 | 4. Recomendaciones | — | 8.8 | Pendiente (siguiente entrega) |
 
 ## Contenido
@@ -46,7 +46,7 @@ Las cifras que aparecen en el informe salen de los archivos de `results/` y de `
 
 ## Cómo reproducirlo en Google Colab
 
-Ejecute los cuadernos en este orden. Cada uno clona este repositorio por sí mismo, instala lo que le falta y termina con el mensaje «Todas las comprobaciones pasaron.».
+Los cuadernos se ejecutan en este orden. Cada uno clona este repositorio por sí mismo, instala lo que le falta y termina con el mensaje «Todas las comprobaciones pasaron.».
 
 | Cuaderno | Colab | Tiempo aproximado |
 |---|---|---|
@@ -54,10 +54,10 @@ Ejecute los cuadernos en este orden. Cada uno clona este repositorio por sí mis
 | 02 | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/angelgoyo/analitica_datos/blob/main/notebooks/02_objetivo2_modelos.ipynb) | unos 33 minutos con 2 núcleos |
 | 03 | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/angelgoyo/analitica_datos/blob/main/notebooks/03_objetivo3_tablero.ipynb) | unos 2 minutos |
 
-1. Abra el cuaderno con el botón de la tabla y use el menú **Entorno de ejecución → Ejecutar todo**.
+1. Se abre el cuaderno con el botón de la tabla y se usa el menú **Entorno de ejecución → Ejecutar todo**.
 2. **Cuaderno 01.** Al final debe aparecer «Todas las comprobaciones pasaron.» y, en la celda que regenera el dataset, «Coincide con el original: True». Regenera `data/processed/`, `docs/figuras/`, `docs/tablas/` y `results/resultados_obj1.json`.
 3. **Cuaderno 02.** Instala Optuna, XGBoost, LightGBM, CatBoost e imbalanced-learn. La mayor parte del tiempo corresponde a la optimización con Optuna; las 30 réplicas del generador agregan unos 2 a 3 minutos. Deja las tablas en `results/tables/`, las figuras en `docs/figuras/` y el registro de corridas en `results/experiments.csv`.
-4. **Cuaderno 03.** Instala `shap` y `openpyxl`. Deja las tablas para Power BI en `data/dashboard/`, los resultados en `results/tables_obj3/`, la hoja `dashboard/Validacion_totales_tablero.xlsx` y la guía `dashboard/GUIA_POWER_BI.md`. El archivo `.pbix` lo arma el equipo.
+4. **Cuaderno 03.** Instala `shap` y `openpyxl`. Deja las tablas para Power BI en `data/dashboard/`, los resultados en `results/tables_obj3/`, la hoja `dashboard/Validacion_totales_tablero.xlsx` y la guía `dashboard/GUIA_POWER_BI.md`. El archivo `.pbix` del tablero está en elaboración.
 5. Para descargar los resultados: panel de archivos de Colab → carpeta `proyecto` → clic derecho → Descargar.
 
 ## Cómo reproducirlo en un equipo local
