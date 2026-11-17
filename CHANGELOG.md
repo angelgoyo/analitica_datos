@@ -37,8 +37,11 @@
 ### Pendientes de esta versión
 
 - El `.pbix` y las capturas del tablero las elabora el equipo; con ellos se completa la columna de Power BI de la validación de totales.
-- Publicación de la v0.3 en GitHub y confirmación de licencias (MIT para el código, CC BY 4.0 para los datos).
 - Ejecución de los cuadernos 02 y 03 en Colab por el equipo para confirmar la reproducción en ese entorno.
+
+### Publicación
+
+- La v0.3 se publicó en GitHub y se fusionó en `main`; las entregas quedaron marcadas con las etiquetas `v0.2` y `v0.3`. Licencias confirmadas: MIT para el código y CC BY 4.0 para los datos.
 - Supuestos por confirmar: modelo que alimenta el tablero (Isolation Forest sin etiquetas), variables del apartado 8.4.3 para el puntaje y cortes de los niveles de riesgo. Las medidas DAX no se pudieron ejecutar en Power BI desde el entorno de análisis.
 
 ## v0.2 — Primera entrega formal (objetivo específico 1)

@@ -54,8 +54,6 @@ Ejecute los cuadernos en este orden. Cada uno clona este repositorio por sí mis
 | 02 | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/angelgoyo/analitica_datos/blob/main/notebooks/02_objetivo2_modelos.ipynb) | unos 33 minutos con 2 núcleos |
 | 03 | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/angelgoyo/analitica_datos/blob/main/notebooks/03_objetivo3_tablero.ipynb) | unos 2 minutos |
 
-Los enlaces funcionan cuando el repositorio esté publicado en GitHub.
-
 1. Abra el cuaderno con el botón de la tabla y use el menú **Entorno de ejecución → Ejecutar todo**.
 2. **Cuaderno 01.** Al final debe aparecer «Todas las comprobaciones pasaron.» y, en la celda que regenera el dataset, «Coincide con el original: True». Regenera `data/processed/`, `docs/figuras/`, `docs/tablas/` y `results/resultados_obj1.json`.
 3. **Cuaderno 02.** Instala Optuna, XGBoost, LightGBM, CatBoost e imbalanced-learn. La mayor parte del tiempo corresponde a la optimización con Optuna; las 30 réplicas del generador agregan unos 2 a 3 minutos. Deja las tablas en `results/tables/`, las figuras en `docs/figuras/` y el registro de corridas en `results/experiments.csv`.
@@ -93,4 +91,8 @@ El dataset es **sintético** (9.500 solicitudes, 220 funcionarios simulados, 202
 
 ## Licencias
 
-Código: MIT (`LICENSE`). Datos: CC BY 4.0 (`DATA_LICENSE`). Ambas son propuestas pendientes de confirmación por el equipo.
+Código: licencia MIT (`LICENSE`). Datos sintéticos: Creative Commons Atribución 4.0 Internacional, CC BY 4.0 (`DATA_LICENSE`).
+
+## Versiones
+
+Las entregas están marcadas con etiquetas de Git: `v0.2` (ACA 1, objetivo 1) y `v0.3` (ACA 2, objetivos 2 y 3). La rama `main` contiene la última versión.
