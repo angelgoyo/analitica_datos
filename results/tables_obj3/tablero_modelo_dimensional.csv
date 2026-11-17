@@ -1,0 +1,14 @@
+﻿Tabla,Tipo,Granularidad,Filas,Clave,Columnas,Contenido
+fact_solicitud,Hecho,Una fila por solicitud de crédito,9500,id_solicitud,26,"Medidas financieras y de gestión, puntaje de riesgo, marca y las tres variables que más pesan en el puntaje"
+fact_funcionario_riesgo,Hecho,Una fila por funcionario,220,id_funcionario,20,"Indicadores conductuales y financieros, puntaje, marca y tres variables que más pesan"
+fact_shap_funcionario,Hecho,Una fila por funcionario y variable explicativa,1100,id_funcionario + id_variable,4,Contribución al riesgo y valor Z de cada indicador
+fact_shap_global,Hecho,Una fila por variable del modelo de solicitudes,25,id_variable,5,Importancia global de la variable en las solicitudes
+fact_validacion_sintetica,Hecho (solo prototipo),Una fila por solicitud,9500,id_solicitud,9,"Etiqueta de la anomalía sintética y marca del modelo, para validar el tablero"
+dim_fecha,Dimensión,Un día,2557,id_fecha,8,"Año, trimestre, mes y día de la semana (2020-01-01 a 2026-12-31)"
+dim_funcionario,Dimensión,Un funcionario,220,id_funcionario,4,"Nivel de riesgo y marca del modelo, para segmentar"
+dim_producto,Dimensión,Un tipo de producto financiero,4,id_producto,2,"Consumo, libre inversión, hipotecario y vehículo"
+dim_region,Dimensión,Una región,7,id_region,2,Región de la solicitud
+dim_canal,Dimensión,Un canal de solicitud,3,id_canal,2,"Digital, sucursal física y asesor comercial"
+dim_segmento,Dimensión,Un segmento de cliente,3,id_segmento,2,"Nuevo, recurrente y preferencial"
+dim_estado,Dimensión,Un estado de aprobación,3,id_estado,3,"Aprobado, rechazado y en estudio"
+dim_variable,Dimensión,Una variable explicativa,42,id_variable,5,"Nombre legible, grupo (financiero, conductual, perfil o calendario) y nivel"

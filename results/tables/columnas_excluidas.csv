@@ -1,0 +1,17 @@
+﻿Columna,Motivo de la exclusión
+id_solicitante,Identificador: no describe comportamiento y permitiría memorizar filas.
+id_funcionario_evaluador,"Identificador del funcionario: solo se usa para calcular agregados dentro del Pipeline, nunca como variable."
+creditos_aprobados_funcionario,Conteo que depende de la carga de cada funcionario y coincide con las aprobaciones del dataset (fuga indirecta); se reemplaza por la tasa de aprobación.
+fecha_solicitud,Se descompone en variables de calendario; la fecha cruda no se usa.
+flag_gasto_mayor_ingreso,"Marca de calidad del ETL, redundante con capacidad_residual."
+flag_numerico_fuera_rango,"Marca de calidad del ETL, sin variación útil."
+flag_categoria_fuera_catalogo,"Marca de calidad del ETL, sin variación útil."
+flag_antiguedad_incoherente,"Marca de calidad del ETL, sin variación útil."
+flag_fecha_posterior_generacion,"Marca de calidad del ETL, sin variación útil."
+flag_alguna,"Marca de calidad del ETL, derivada de las anteriores."
+excepcion_bin,Redundante con la categoría excepciones_politicas_internas.
+aprobado_bin,Redundante con la categoría estado_aprobacion (se usa solo para agregados).
+decidido_bin,Redundante con la categoría estado_aprobacion (se usa solo para agregados).
+mes,"Se reemplaza por su codificación cíclica (mes_sin, mes_cos)."
+es_anomalia,Etiqueta: solo evalúa y ajusta hiperparámetros en validación.
+tipo_anomalia,Etiqueta: solo evalúa.

@@ -1,0 +1,8 @@
+﻿Hipótesis,Comparación,Diferencia mediana,Estadístico,Valor p,Umbral,Rechaza H0
+H1,Isolation Forest frente al modelo base (solicitud),-0.0932511403846602,0.0,1.0,0.016666666666666666,False
+H1,DBSCAN frente al modelo base (solicitud),0.03879496308125935,394.0,0.0002527441829442978,0.016666666666666666,True
+H1,Autoencoder frente al modelo base (solicitud),-0.14567862142263344,0.0,1.0,0.016666666666666666,False
+H2,Funcionario frente a solicitud: Modelo base: valor Z ≥ 3,0.23196527610320716,465.0,9.313225746154785e-10,0.05,True
+H2,Funcionario frente a solicitud: Isolation Forest,0.05445079826127297,463.0,2.7939677238464355e-09,0.016666666666666666,True
+H2,Funcionario frente a solicitud: DBSCAN,0.019825437466855667,264.0,0.2645525922998786,0.016666666666666666,False
+H2,Funcionario frente a solicitud: Autoencoder,0.10333535293852555,465.0,9.313225746154785e-10,0.016666666666666666,True

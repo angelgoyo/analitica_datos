@@ -1,0 +1,28 @@
+﻿Control de integridad,Valor
+Filas de fact_solicitud[id_fecha] sin dim_fecha[id_fecha],0
+Filas de fact_solicitud[id_funcionario] sin dim_funcionario[id_funcionario],0
+Filas de fact_solicitud[id_producto] sin dim_producto[id_producto],0
+Filas de fact_solicitud[id_region] sin dim_region[id_region],0
+Filas de fact_solicitud[id_canal] sin dim_canal[id_canal],0
+Filas de fact_solicitud[id_segmento] sin dim_segmento[id_segmento],0
+Filas de fact_solicitud[id_estado] sin dim_estado[id_estado],0
+Filas de fact_solicitud[id_variable_1] sin dim_variable[id_variable],0
+Filas de fact_funcionario_riesgo[id_funcionario] sin dim_funcionario[id_funcionario],0
+Filas de fact_shap_funcionario[id_funcionario] sin dim_funcionario[id_funcionario],0
+Filas de fact_shap_funcionario[id_variable] sin dim_variable[id_variable],0
+Filas de fact_shap_global[id_variable] sin dim_variable[id_variable],0
+Filas de fact_validacion_sintetica[id_fecha] sin dim_fecha[id_fecha],0
+Filas de fact_validacion_sintetica[id_funcionario] sin dim_funcionario[id_funcionario],0
+Filas de fact_validacion_sintetica[id_producto] sin dim_producto[id_producto],0
+Filas de fact_validacion_sintetica[id_region] sin dim_region[id_region],0
+Duplicados en dim_fecha[id_fecha],0
+Duplicados en dim_funcionario[id_funcionario],0
+Duplicados en dim_producto[id_producto],0
+Duplicados en dim_region[id_region],0
+Duplicados en dim_canal[id_canal],0
+Duplicados en dim_segmento[id_segmento],0
+Duplicados en dim_estado[id_estado],0
+Duplicados en dim_variable[id_variable],0
+Duplicados en fact_solicitud[id_solicitud],0
+Duplicados en fact_funcionario_riesgo[id_funcionario],0
+Duplicados en fact_validacion_sintetica[id_solicitud],0

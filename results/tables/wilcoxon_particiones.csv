@@ -1,0 +1,9 @@
+﻿Métrica,Comparación,Diferencia mediana,Estadístico,Valor p,Umbral (Bonferroni),Significativa
+F1 de la clase anómala,Isolation Forest frente al modelo base,-0.073798159040868,2.0,0.998046875,0.016666666666666666,False
+F1 de la clase anómala,DBSCAN frente al modelo base,0.1087208245483321,55.0,0.0009765625,0.016666666666666666,True
+F1 de la clase anómala,Autoencoder frente al modelo base,-0.0932729632652832,0.0,1.0,0.016666666666666666,False
+F1 de la clase anómala,LightGBM (supervisado) frente a DBSCAN (no supervisado),0.30148153347456547,55.0,0.0009765625,0.05,True
+F1 macro,Isolation Forest frente al modelo base,-0.025625873480964734,7.0,0.986328125,0.016666666666666666,False
+F1 macro,DBSCAN frente al modelo base,0.07324023290967413,55.0,0.0009765625,0.016666666666666666,True
+F1 macro,Autoencoder frente al modelo base,-0.03747055326051785,0.0,1.0,0.016666666666666666,False
+F1 macro,LightGBM (supervisado) frente a DBSCAN (no supervisado),0.1627119516500774,55.0,0.0009765625,0.05,True

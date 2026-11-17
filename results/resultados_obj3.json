@@ -1,0 +1,107 @@
+{
+  "version_codigo": "v0.3",
+  "semilla": 42,
+  "interpretaciones": {
+    "tab_puntaje_sol": {
+      "titulo": "Puntaje de riesgo por solicitud",
+      "texto": "El umbral de marca corresponde a un puntaje de anomalía de 0,506, el cuantil 92,5 % de las 6.650 solicitudes de entrenamiento. Quedan marcadas 734 de 9.500 solicitudes (7,7 %); en la prueba, 8,2 % y en el entrenamiento, 7,5 %. El modelo usa 25 variables del apartado 8.4.3 y no ve la etiqueta."
+    },
+    "tab_niveles": {
+      "titulo": "Niveles de riesgo de los funcionarios",
+      "texto": "De 220 funcionarios, 6 quedan en nivel crítico y 17 en nivel alto o crítico (7,7 %), que es la proporción de contaminación fijada. El funcionario con mayor puntaje es el de identificador 95; la variable que más pesa en su puntaje es «tasa de aprobación frente a sus pares (Z)». El nivel prioriza la revisión; no es una conclusión sobre la conducta del funcionario."
+    },
+    "fig_shap_sol": {
+      "titulo": "Variables que más pesan en el puntaje de las solicitudes",
+      "texto": "Las cinco variables con más peso en las solicitudes marcadas son: monto frente a su propio historial (Z) (9,3 %); cuota estimada sobre capacidad residual (6,9 %); cuota estimada sobre ingreso (6,2 %); ingreso menos gastos mensuales (5,2 %); ingreso mensual del solicitante (5,0 %). Por grupo de variables: financiero 58 %; conductual 30 %; perfil del solicitante 10 %; calendario 3 %. La importancia es un reparto del puntaje, no una relación causal: indica por qué el modelo marca la solicitud, no si hubo una irregularidad."
+    },
+    "fig_shap_fun": {
+      "titulo": "Explicación del puntaje de los funcionarios en nivel alto o crítico",
+      "texto": "Para los 17 funcionarios en nivel alto o crítico, el indicador que más aporta al riesgo es «tasa de excepciones frente a sus pares (Z)» en 5 de ellos. Un valor positivo (rojo) indica que el indicador del funcionario se aleja de sus pares y sube su puntaje; uno negativo (azul) lo baja. La explicación es individual: dos funcionarios con el mismo nivel pueden estar allí por indicadores distintos."
+    },
+    "tab_modelo": {
+      "titulo": "Modelo dimensional del tablero",
+      "texto": "El modelo tiene 5 tablas de hechos y 8 dimensiones, con 16 relaciones de muchos a uno. Los 27 controles de integridad (filas sin dimensión y claves duplicadas) dan cero, de modo que ninguna solicitud ni funcionario queda fuera de un filtro por error de carga. La tabla de hechos principal tiene una fila por solicitud (9.500) y se relaciona con seis dimensiones."
+    },
+    "tab_kpis": {
+      "titulo": "Indicadores del tablero",
+      "texto": "El tablero reporta 18 indicadores: 4 conductuales, 3 financieros, 6 de riesgo, 1 de explicación y 2 de validación. Sobre las 9.500 solicitudes, la tasa de aprobación es 71,5 %, la tasa de excepciones 9,0 % y el tiempo de respuesta promedio 9,31 días; el modelo marca 734 solicitudes (7,7 %). A nivel de funcionario, 17 de 220 (7,7 %) quedan en nivel alto o crítico."
+    },
+    "fig_calor": {
+      "titulo": "Concentración de solicitudes marcadas",
+      "texto": "El porcentaje de solicitudes marcadas va de 3,6 % (Bogotá, libre inversión) a 26,0 % (Santander, hipotecario); el global es 7,7 %. Por tipo de producto, el promedio va de 5,2 % (libre inversión) a 21,1 % (hipotecario); por región, de 8,0 % a 10,7 %. El producto con más marcas es también el de mayor monto solicitado promedio, de modo que el modelo tiende a marcar montos altos; conviene leer el puntaje dentro de cada producto. Con pocas solicitudes por celda, las diferencias pequeñas pueden deberse al azar; el mapa sirve para priorizar la revisión y no para concluir sobre una región o un producto."
+    },
+    "tab_validacion": {
+      "titulo": "Validación de totales entre la fuente y las tablas del tablero",
+      "texto": "De 51 controles, 51 coinciden con la fuente; la mayor diferencia absoluta es 4.9e-07. Los controles cubren los registros de cada tabla de hechos, los 18 indicadores (K01 a K18) y los desgloses por región, producto, canal, estado y año. Falta el último paso, que solo puede hacer el equipo: escribir en el archivo de Excel los valores que muestre Power BI y comprobar que la diferencia sea cero."
+    },
+    "tab_verdad": {
+      "titulo": "Validación del puntaje con la verdad sintética",
+      "texto": "En la prueba, el puntaje marca 235 solicitudes y acierta 88 de las 227 anómalas: precisión 0,374, recall 0,388 y F1 0,381; el cuaderno 02 obtiene un F1 de 0,432 con Isolation Forest ajustado. El F1 es 0,404 en entrenamiento y 0,381 en prueba; la diferencia es menor de 0,05, sin señal de sobreajuste en un detector que no ve la etiqueta. A nivel de funcionario, 6 de los 6 atípicos quedan en nivel crítico y 11 funcionarios no atípicos están en nivel alto o crítico; con solo 6 casos positivos, esto es descriptivo y no una prueba de desempeño. El perfil de funcionario usa todas las solicitudes y los puntajes Z se calculan con los 220 funcionarios como referencia; en el cuaderno 02 la referencia de pares se calcula solo con el entrenamiento, así que las cifras de funcionario no son comparables una a una."
+    },
+    "tab_sens": {
+      "titulo": "Sensibilidad del puntaje al conjunto de variables",
+      "texto": "Con las variables del apartado 8.4.3 el F1 en la prueba es 0,381; con el conjunto completo, 0,412. En el conjunto completo la variable que más pesa es «solicitud en los últimos días del mes» y las variables de calendario concentran 14,7 % de la importancia; con 8.4.3 la que más pesa es «monto frente a su propio historial (Z)». Un analista de control interno interpreta con más facilidad una explicación basada en montos, ingresos y comparación con pares que una basada en el día del mes, por eso el tablero usa el conjunto del apartado 8.4.3."
+    }
+  },
+  "entorno": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "shap": "0.54.1",
+    "openpyxl": "3.1.5",
+    "python": "3.13.18"
+  },
+  "tablas_dashboard": [
+    "dim_canal.csv",
+    "dim_estado.csv",
+    "dim_fecha.csv",
+    "dim_funcionario.csv",
+    "dim_producto.csv",
+    "dim_region.csv",
+    "dim_segmento.csv",
+    "dim_variable.csv",
+    "fact_funcionario_riesgo.csv",
+    "fact_shap_funcionario.csv",
+    "fact_shap_global.csv",
+    "fact_solicitud.csv",
+    "fact_validacion_sintetica.csv"
+  ],
+  "figuras_generadas": [
+    "fig_obj3_mapa_calor.png",
+    "fig_obj3_modelo_dimensional.png",
+    "fig_obj3_shap_funcionarios.png",
+    "fig_obj3_shap_solicitud.png"
+  ],
+  "tablas_resultados": [
+    "tablero_integridad.csv",
+    "tablero_kpis.csv",
+    "tablero_mapa_calor_region_producto.csv",
+    "tablero_modelo_dimensional.csv",
+    "tablero_niveles_funcionario.csv",
+    "tablero_puntaje_solicitud.csv",
+    "tablero_relaciones.csv",
+    "tablero_sensibilidad_variables.csv",
+    "tablero_shap_global.csv",
+    "tablero_top_funcionarios.csv",
+    "tablero_validacion_funcionarios.csv",
+    "tablero_validacion_por_tipo.csv",
+    "tablero_validacion_sintetica.csv",
+    "tablero_validacion_totales.csv"
+  ],
+  "control": {
+    "umbral_solicitud": 0.5063122753784857,
+    "umbral_funcionario": 0.5178880033510418,
+    "cortes_nivel": {
+      "Medio": 0.4565940906358535,
+      "Alto": 0.5178880033510418,
+      "Crítico": 0.5901995077576441
+    },
+    "error_aditividad_shap_solicitud": 1.1018963519404679e-13,
+    "error_aditividad_shap_funcionario": 1.1357581541915351e-13,
+    "n_entrenamiento": 6650,
+    "n_prueba": 2850
+  },
+  "n_controles_validacion": 51
+}

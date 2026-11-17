@@ -1,0 +1,16 @@
+﻿Modelo,clave,Pruebas,Mejor F1 macro interno,Mejores valores,Duración (s)
+Modelo base: valor Z ≥ 3,z_base,0,,{},0.0
+Isolation Forest,isolation_forest,20,0.7025152937999389,"{""n_estimators"": 242, ""max_samples"": 0.21646759543664196, ""max_features"": 0.9849549260809971}",31.8
+DBSCAN,dbscan,20,0.7786941995228837,"{""eps"": 5.698469223877077, ""min_samples"": 29}",9.2
+Autoencoder,autoencoder,20,0.6915116464440922,"{""cuello"": 4, ""alpha"": 0.029154431891537533}",91.2
+Base ingenuo (clase mayoritaria),base_ingenuo,0,,{},0.0
+Regresión logística (Ridge),logistica_l2,20,0.8291557264428636,"{""C"": 9.154902491428649}",71.3
+Regresión logística (Lasso),logistica_l1,20,0.8286013161379097,"{""C"": 7.61045932406855}",161.6
+K vecinos más cercanos,knn,20,0.8954822504979716,"{""n_neighbors"": 3, ""weights"": ""distance"", ""p"": 2}",80.4
+Máquina de soporte vectorial (RBF),svm,20,0.9418859014333342,"{""C"": 88.64947819116749, ""gamma"": 0.024920354039946066}",118.0
+Árbol de decisión,arbol,20,0.935782050171328,"{""max_depth"": 12, ""min_samples_leaf"": 1}",72.3
+Bosque aleatorio,bosque,20,0.9592897677054925,"{""n_estimators"": 291, ""max_depth"": 18, ""min_samples_leaf"": 3}",149.6
+XGBoost,xgboost,20,0.9653497048041492,"{""n_estimators"": 180, ""max_depth"": 8, ""learning_rate"": 0.010753253804535767, ""subsample"": 0.8621088316160196, ""colsample_bytree"": 0.953252673486282, ""scale_pos_weight"": 1.3068990905612556}",92.4
+LightGBM,lightgbm,20,0.9659224968793745,"{""n_estimators"": 216, ""num_leaves"": 64, ""learning_rate"": 0.09674550913790271, ""subsample"": 0.9995368857876763, ""colsample_bytree"": 0.6559239719195135, ""min_child_samples"": 18, ""scale_pos_weight"": 6.754641613914414}",96.3
+CatBoost,catboost,20,0.9682729121123237,"{""iterations"": 104, ""depth"": 8, ""learning_rate"": 0.19057174434080473, ""l2_leaf_reg"": 2.9110519961044856, ""scale_pos_weight"": 3.5455495408994087}",128.0
+Red neuronal (MLP),mlp,20,0.9348819808924116,"{""capas"": ""32"", ""alpha"": 0.014101592734027307, ""learning_rate_init"": 0.008621083988008798}",83.2

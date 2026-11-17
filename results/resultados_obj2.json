@@ -1,0 +1,354 @@
+{
+  "version_codigo": "v0.3",
+  "semilla": 42,
+  "n_trials": 20,
+  "interpretaciones": {
+    "tab_particion": {
+      "titulo": "Partición del conjunto de datos",
+      "texto": "El conjunto se divide en 6.650 solicitudes de entrenamiento y 2.850 de prueba; la proporción de anómalas es 7,97 % y 7,96 %, es decir, la estratificación mantiene el desbalance. La prueba no se toca hasta la sección 5."
+    },
+    "tab_fe": {
+      "titulo": "Variables construidas",
+      "texto": "Tras imputar, transformar, codificar y escalar quedan 88 variables; la selección por información mutua conserva el 70 % (61) en los modelos supervisados. Los modelos no supervisados usan solo las variables continuas, porque la selección necesitaría la etiqueta."
+    },
+    "tab_mi": {
+      "titulo": "Variables con mayor información mutua con la etiqueta (entrenamiento)",
+      "texto": "Las tres variables con más información mutua son z_pares_monto, z_pares_tasa_aprobacion y z_pares_tasa_excepciones. 6 de las 12 primeras son desviaciones frente a pares, calculadas solo con el entrenamiento."
+    },
+    "tab_optuna": {
+      "titulo": "Mejores hiperparámetros por modelo",
+      "texto": "Cada uno de los 13 modelos con hiperparámetros recibió 20 pruebas; el mayor F1 macro en validación interna lo obtuvo CatBoost (0,968). El modelo base de valor Z y el base ingenuo no tienen hiperparámetros que ajustar. Los valores completos y las 20 pruebas de cada modelo están en `results/tables/optuna_pruebas.csv`."
+    },
+    "tab_confusion": {
+      "titulo": "Matrices de confusión de cada modelo en el conjunto de prueba",
+      "texto": "La prueba tiene 227 solicitudes anómalas de 2.850; LightGBM acierta 200 y deja pasar 27, con 4 falsas alarmas. El modelo base ingenuo clasifica todo como normal y no detecta ninguna anomalía, lo que fija el piso de comparación."
+    },
+    "tab_dbscan_kdistancia": {
+      "titulo": "Valor de eps de DBSCAN: Optuna frente al gráfico de k-distancias",
+      "texto": "Optuna eligió eps = 5,70 con min_samples = 29. El codo del gráfico de k-distancias da eps = 6,55 con k = 29 y eps = 6,83 con k = 74. En la prueba, el F1 de la clase anómala es 0,60 con el eps de Optuna, 0,14 con el primer codo y 0,21 con el segundo; la diferencia con el camino supervisado es de -0,46 y -0,39. La heurística no usa etiquetas, por lo que su resultado indica cuánto del desempeño de DBSCAN depende de haber guiado la búsqueda con ellas; con una sola partición de prueba la diferencia es descriptiva."
+    },
+    "tab_comparacion": {
+      "titulo": "Comparación de modelos en validación y prueba",
+      "texto": "Entre los modelos no supervisados, DBSCAN obtiene el mayor F1 macro de validación (0,799) frente a 0,729 del modelo base de valor Z; entre los supervisados, que usan la etiqueta, lidera LightGBM (0,964). Sin depender del umbral, el AUC-PR de validación es 0,53 para DBSCAN y 0,51 para el modelo base; el F1 macro de DBSCAN depende además de `eps`, que se ajustó con la etiqueta, mientras que el umbral del modelo base (Z ≥ 3) y la contaminación de Isolation Forest y del autoencoder (7,5 %) se fijaron de antemano, por lo que la comparación favorece a los detectores con parámetro ajustado. La diferencia entre ambos grupos (0,165 puntos de F1 macro) estima lo que aportaría contar con la etiqueta. El AUC-PR es la métrica más exigente con el desbalance: un clasificador al azar obtiene alrededor de la prevalencia (0,08)."
+    },
+    "tab_wilcoxon": {
+      "titulo": "Prueba de Wilcoxon sobre las 10 particiones de validación",
+      "texto": "Con el F1 de la clase anómala, 1 de los 3 modelos no supervisados supera al modelo base con significancia corregida (p < 0,017): DBSCAN. Con 10 pares, el menor valor p posible es 0,001 en la prueba de una cola, y las particiones comparten datos; por eso esta prueba es complementaria y la evidencia principal es la de las 30 réplicas del generador (sección 14)."
+    },
+    "tab_ablacion_fe": {
+      "titulo": "Aporte de cada nivel de variables al F1 de la clase anómala",
+      "texto": "Las variables del apartado 8.4.3 mejoran el F1 de la clase anómala en 6 de 6 modelos (entre 0,152 y 0,379). Las variables nuevas agregan entre -0,139 y 0,023 sobre las de 8.4.3; el aporte es positivo en 2 de 6 modelos. Los hiperparámetros se ajustaron con el nivel completo; esto puede favorecer ligeramente esa versión."
+    },
+    "tab_ablacion_smote": {
+      "titulo": "Efecto de SMOTE sobre el F1 macro",
+      "texto": "SMOTE cambia el F1 macro entre -0,068 y 0,009 según el modelo. En los modelos sin pesos de clase: K vecinos más cercanos, recall de 0,71 a 0,93 y precisión de 0,96 a 0,56; Red neuronal (MLP), recall de 0,83 a 0,87 y precisión de 0,91 a 0,85. En los modelos que ya usan pesos de clase (Regresión logística (Ridge), Bosque aleatorio) la diferencia de F1 macro es de 0,009, -0,003."
+    },
+    "tab_sensibilidad": {
+      "titulo": "Sensibilidad de los detectores no supervisados al parámetro de contaminación",
+      "texto": "En Isolation Forest, el mejor F1 macro de validación se obtiene con contaminación 7,5 % y en el autoencoder con contaminación 7,5 %. En DBSCAN, mover `eps` un 25 % hacia abajo o hacia arriba lleva el F1 macro de 0,799 a 0,146 y 0,516, es decir, es mucho más sensible a su parámetro que Isolation Forest y el autoencoder a la contaminación. La variación del F1 macro entre los tres valores es de 0,020 en Isolation Forest y de 0,018 en el autoencoder; el AUC-PR no cambia con la contaminación porque no depende del umbral."
+    },
+    "tab_funcionario": {
+      "titulo": "Detección de funcionarios atípicos con 6 casos positivos",
+      "texto": "Con las configuraciones de referencia, definidas antes de ver los resultados, se obtiene: Modelo base: valor Z ≥ 3: 4 de 6 con 6 marcados (F1 0,67); Isolation Forest: 6 de 6 con 17 marcados (F1 0,52); Autoencoder: 6 de 6 con 17 marcados (F1 0,52); DBSCAN: 6 de 6 con 13 marcados (F1 0,63). Con DBSCAN (eps = 2,0) se marcan exactamente los 6 funcionarios atípicos, pero ese valor no se eligió con datos independientes y no debe tomarse como resultado. Las puntuaciones separan casi por completo a los atípicos (AUC-ROC entre 0,994 y 1,000); la dificultad está en el umbral, no en la señal. A nivel de solicitud, en la prueba, el F1 de la clase anómala fue de 0,53 (base de valor Z), 0,43 (Isolation Forest), 0,45 (autoencoder) y 0,60 (DBSCAN); los dos niveles tienen unidades y prevalencias distintas (2,7 % frente a 8,0 %), por lo que la comparación es descriptiva y no prueba la hipótesis H2. Con 6 positivos, un solo acierto o error cambia mucho las métricas; los intervalos son amplios y la conclusión debe tratarse con cautela."
+    },
+    "tab_z_aprob": {
+      "titulo": "Valor Z de aprobación de los 6 funcionarios atípicos con dos referencias de pares",
+      "texto": "Con todos los registros como referencia, 6 de 6 alcanzan Z ≥ 3 en aprobación; con solo el entrenamiento, 0 de 6. El valor Z de aprobación con la referencia de entrenamiento va de 2,66 a 2,98, de modo que la separación es clara pero cercana al umbral."
+    },
+    "tab_funcionario_oof": {
+      "titulo": "Nivel de funcionario con predicciones fuera de muestra",
+      "texto": "F1 de la clase atípica con la referencia y el detector calculados sin el funcionario evaluado, frente al valor de la sección 10: Modelo base: valor Z ≥ 3: 0,67 dentro y 0,67 fuera (rango 0,62 a 0,77); Isolation Forest: 0,52 dentro y 0,49 fuera (rango 0,43 a 0,57); Autoencoder: 0,52 dentro y 0,48 fuera (rango 0,41 a 0,63); DBSCAN: 0,63 dentro y 0,43 fuera (rango 0,38 a 0,50). La diferencia (dentro menos fuera, mediana de las repeticiones) va de 0,00 a 0,20; es una medida del optimismo de evaluar a los funcionarios con un modelo que ya los vio. Con 6 casos positivos y dos por pliegue, cada atípico que cambia de lado modifica mucho el F1: las cifras son evidencia limitada y no sustituyen a una validación con más funcionarios."
+    },
+    "tab_por_clase": {
+      "titulo": "Precision, recall y F1 por clase en el conjunto de prueba",
+      "texto": "En la clase anómala (227 solicitudes), el modelo base de valor Z logra un F1 de 0,528 y DBSCAN de 0,600; LightGBM, que usa la etiqueta, llega a 0,928. La clase normal tiene F1 superior a 0,9 en todos los modelos mostrados, por lo que no discrimina entre ellos: la comparación se hace en la clase anómala."
+    },
+    "tab_por_tipo": {
+      "titulo": "Desempeño de cada modelo por tipo de anomalía en el conjunto de prueba",
+      "texto": "El modelo base de valor Z detecta 97 % de las anomalías de tipo «tiempo de respuesta excesivo» y solo 66 % de las de «monto desproporcionado vs. ingreso»; el recall de los otros tipos va de 87 % a 97 %. DBSCAN detecta 41 % de «monto desproporcionado vs. ingreso», 71 % de «funcionario con aprobación atípica», 55 % de «tiempo de respuesta excesivo». Que un modelo detecte bien un tipo y mal otro indica qué parte del comportamiento atípico captura cada técnica; el desglose permite elegir modelos complementarios."
+    },
+    "tab_segmentos": {
+      "titulo": "Piso de F1 y F1 del modelo base por tipo de producto y por región",
+      "texto": "El F1 global del modelo base, con predicciones fuera de muestra, es 0,557 frente a un piso de 0,148; por segmento va de 0,339 (Hipotecario, tipo de producto) a 0,638 (Consumo, tipo de producto). La proporción de anómalas no difiere de forma significativa entre segmentos (valores p de 0,451 a 0,737). El recall del modelo base difiere entre segmentos en al menos una variable (valor p mínimo 0,0000). Los segmentos con pocas anómalas tienen intervalos amplios (columnas IC de `segmentos_producto_region.csv`) y no deben interpretarse de forma individual."
+    },
+    "tab_estabilidad": {
+      "titulo": "Estabilidad de las anomalías sintéticas entre 2020 y 2026",
+      "texto": "La proporción de anómalas va de 6,8 % a 9,5 % entre años; la prueba de homogeneidad da un valor p de 0,263, sin evidencia de cambio. La mezcla de tipos de anomalía (0,728) y el monto relativo de las anómalas (0,568) tampoco muestran cambios significativos (α = 0,05). El F1 del modelo base por año va de 0,425 a 0,621; con pocas anómalas por año, las diferencias pequeñas no son concluyentes."
+    },
+    "tab_replicas": {
+      "titulo": "Contraste de las hipótesis H1 y H2 con 30 réplicas del generador",
+      "texto": "Con el F1 de la clase anómala en la prueba, el modelo base obtiene una mediana de 0,572 en las 30 réplicas; Isolation Forest 0,467; DBSCAN 0,614; Autoencoder 0,418. H1: se rechaza H0, porque DBSCAN supera al modelo base con p < 0,017. El parámetro eps de DBSCAN se ajustó con la etiqueta en validación y el F1 es muy sensible a ese valor (véase la sensibilidad al parámetro; en la sección 5.1, con el eps del codo de k-distancias el F1 en la prueba baja de {n(KDF[0], 2)} a {n(KDF[1], 2)} y {n(KDF[2], 2)}), por lo que esta ventaja no equivale a un resultado sin etiquetas. H2: se rechaza H0 para Isolation Forest, Autoencoder: el F1 a nivel de funcionario es mayor que a nivel de solicitud. Las réplicas usan hiperparámetros ajustados en el dataset principal, y el nivel de funcionario tiene solo 6 casos positivos por réplica; la comparación entre niveles no es entre unidades homogéneas."
+    },
+    "fig_obj2_comparacion": {
+      "titulo": "F1 macro de los modelos en validación (10 particiones) y en la prueba",
+      "texto": "Los modelos supervisados con mejor desempeño (LightGBM, CatBoost, XGBoost) superan 0,96 de F1 macro, mientras que los no supervisados quedan entre 0,69 y 0,80. El resultado en la prueba cae dentro de dos desviaciones estándar de la validación en 14 de 15 modelos; la diferencia prueba menos validación va de -0,015 a 0,012."
+    },
+    "fig_obj2_mejor": {
+      "titulo": "Mejor modelo por F1 macro de validación: LightGBM",
+      "texto": "En la prueba detecta 200 de 227 solicitudes anómalas con 4 falsas alarmas (precision 0,98, recall 0,88). Su AUC-ROC en la prueba es 0,995 y su AUC-PR 0,97, frente a 0,48 del mejor modelo no supervisado (DBSCAN) y 0,51 del modelo base; por ser supervisado usa la etiqueta, así que sirve como techo y no como solución aplicable sin etiquetas."
+    },
+    "fig_obj2_rep": {
+      "titulo": "F1 de la clase anómala en 30 réplicas del generador",
+      "texto": "A nivel de solicitud, las medianas van de 0,42 a 0,61; a nivel de funcionario, de 0,52 a 0,80. El rango intercuartil medio entre réplicas es de 0,06 a nivel de funcionario y de 0,05 a nivel de solicitud: la dispersión es mayor con solo 6 casos positivos por réplica."
+    },
+    "fig_obj2_seg": {
+      "titulo": "F1 del modelo base por tipo de producto y región",
+      "texto": "El modelo base supera el piso de su segmento en 11 de 11 segmentos, y el menor margen es de 0,186. El intervalo de 9 de 11 segmentos incluye el F1 global del modelo base (0,56); con pocas anómalas por segmento, las diferencias entre segmentos deben leerse con cautela."
+    },
+    "fig_obj2_est": {
+      "titulo": "Estabilidad temporal de las anomalías y de su detección",
+      "texto": "La proporción de anómalas va de 6,8 % a 9,5 % en los 7 años; la prueba de homogeneidad da un valor p de 0,263. La correlación de Spearman entre año y prevalencia es -0,86 (valor p 0,01), calculada con solo 7 puntos y con 2026 incompleto: sugiere una tendencia que debe leerse con cautela, porque la prueba de homogeneidad por año no la confirma. El F1 del modelo base por año oscila entre 0,42 y 0,62; con pocas anómalas por año, esas diferencias no son concluyentes."
+    }
+  },
+  "entorno": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "optuna": "5.0.0",
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10",
+    "imblearn": "0.14.2",
+    "python": "3.13.18"
+  },
+  "huella_indices_prueba": "caa45cdab4a3aae4b579807402858cd3cf46ce5dc4952af5de429c8e2bc8a4aa",
+  "n_variables_tras_preprocesar": 88,
+  "n_variables_seleccionadas": 61,
+  "auc_etiquetas_barajadas": 0.5200471698113207,
+  "funcionarios_en_referencia_pares": 220,
+  "dbscan_kdistancia": {
+    "eps_optuna": 5.698469223877077,
+    "k_optuna": 29,
+    "n_variables": 37,
+    "variantes": [
+      {
+        "camino": "Optuna (con etiqueta en validación interna)",
+        "k": 29,
+        "eps": 5.698469223877077,
+        "f1": 0.6004728132387707,
+        "precision": 0.6479591836734694,
+        "recall": 0.5594713656387665
+      },
+      {
+        "camino": "Codo con k = 29 (min_samples de Optuna)",
+        "k": 29,
+        "eps": 6.54600597495197,
+        "f1": 0.1423487544483986,
+        "precision": 0.37037037037037035,
+        "recall": 0.0881057268722467
+      },
+      {
+        "camino": "Codo con k = 2·d = 74 (Sander et al.)",
+        "k": 74,
+        "eps": 6.832944872502191,
+        "f1": 0.21305841924398625,
+        "precision": 0.484375,
+        "recall": 0.13656387665198239
+      }
+    ]
+  },
+  "mejor_no_supervisado": "dbscan",
+  "mejor_supervisado": "lightgbm",
+  "h1_exploratoria_particiones": {
+    "modelos_que_superan_al_base": [
+      "DBSCAN"
+    ]
+  },
+  "funcionario": {
+    "referencia": {
+      "Modelo base: valor Z ≥ 3": {
+        "f1": 0.6666666666666666,
+        "detectados": 4,
+        "marcados": 6
+      },
+      "Isolation Forest": {
+        "f1": 0.5217391304347826,
+        "detectados": 6,
+        "marcados": 17
+      },
+      "Autoencoder": {
+        "f1": 0.5217391304347826,
+        "detectados": 6,
+        "marcados": 17
+      },
+      "DBSCAN": {
+        "f1": 0.631578947368421,
+        "detectados": 6,
+        "marcados": 13
+      }
+    }
+  },
+  "funcionario_fuera_de_muestra": {
+    "Modelo base: valor Z ≥ 3": {
+      "f1_dentro": 0.6666666666666666,
+      "f1_fuera_mediana": 0.6666666666666666,
+      "rango": "0.62 a 0.77",
+      "ic": "0.25 a 0.92",
+      "detectados_fuera_mediana": 4.0
+    },
+    "Isolation Forest": {
+      "f1_dentro": 0.5217391304347826,
+      "f1_fuera_mediana": 0.49,
+      "rango": "0.43 a 0.57",
+      "ic": "0.27 a 0.80",
+      "detectados_fuera_mediana": 6.0
+    },
+    "Autoencoder": {
+      "f1_dentro": 0.5217391304347826,
+      "f1_fuera_mediana": 0.48,
+      "rango": "0.41 a 0.63",
+      "ic": "0.23 a 0.74",
+      "detectados_fuera_mediana": 6.0
+    },
+    "DBSCAN": {
+      "f1_dentro": 0.631578947368421,
+      "f1_fuera_mediana": 0.42857142857142855,
+      "rango": "0.38 a 0.50",
+      "ic": "0.17 a 0.65",
+      "detectados_fuera_mediana": 6.0
+    }
+  },
+  "segmentos": {
+    "f1_global_oof": {
+      "z_base": 0.5571125265392781,
+      "isolation_forest": 0.47051198963058977,
+      "dbscan": 0.597479614529281,
+      "autoencoder": 0.4409240924092409
+    }
+  },
+  "estabilidad": {
+    "p_prevalencia": 0.263402309679236,
+    "p_mezcla_tipos": 0.7275843823459862,
+    "p_kw_anomalas": 0.5684433891091258,
+    "p_kw_normales": 0.36355056273648684
+  },
+  "hipotesis_replicas": {
+    "semillas": [
+      101,
+      130
+    ],
+    "H1_rechaza_H0": true,
+    "H1_modelos": [
+      "DBSCAN frente al modelo base (solicitud)"
+    ],
+    "H2_rechaza_H0": true,
+    "H2_modelos": [
+      "Funcionario frente a solicitud: Isolation Forest",
+      "Funcionario frente a solicitud: Autoencoder"
+    ]
+  },
+  "mejor_modelo_global": "lightgbm",
+  "tablas_generadas": [
+    "ablacion_desbalance.csv",
+    "ablacion_fe.csv",
+    "ablacion_fe_por_particion.csv",
+    "columnas_excluidas.csv",
+    "dbscan_eps_kdistancia.csv",
+    "estabilidad_temporal.csv",
+    "estabilidad_temporal_contrastes.csv",
+    "informacion_mutua_entrenamiento.csv",
+    "ingenieria_caracteristicas.csv",
+    "matrices_confusion_prueba.csv",
+    "metricas_por_clase_prueba.csv",
+    "metricas_por_particion.csv",
+    "metricas_por_tipo_prueba.csv",
+    "optuna_espacio_busqueda.csv",
+    "optuna_mejores_valores.csv",
+    "optuna_pruebas.csv",
+    "particion_entrenamiento_prueba.csv",
+    "replicas_f1.csv",
+    "replicas_resumen.csv",
+    "replicas_wilcoxon_hipotesis.csv",
+    "resultados_funcionario.csv",
+    "resultados_funcionario_fuera_de_muestra.csv",
+    "resultados_prueba.csv",
+    "resumen_modelos.csv",
+    "resumen_validacion.csv",
+    "segmentos_contrastes.csv",
+    "segmentos_producto_region.csv",
+    "sensibilidad_contaminacion.csv",
+    "variables_retenidas.csv",
+    "wilcoxon_particiones.csv",
+    "z_aprobacion_atipicos.csv"
+  ],
+  "figuras_generadas": [
+    "fig_obj2_comparacion_modelos.png",
+    "fig_obj2_estabilidad_temporal.png",
+    "fig_obj2_mejor_modelo.png",
+    "fig_obj2_replicas.png",
+    "fig_obj2_segmentos.png"
+  ],
+  "n_corridas_registradas": 328,
+  "mejores_hiperparametros": {
+    "z_base": {},
+    "isolation_forest": {
+      "n_estimators": 242,
+      "max_samples": 0.21646759543664196,
+      "max_features": 0.9849549260809971
+    },
+    "dbscan": {
+      "eps": 5.698469223877077,
+      "min_samples": 29
+    },
+    "autoencoder": {
+      "cuello": 4,
+      "alpha": 0.029154431891537533
+    },
+    "base_ingenuo": {},
+    "logistica_l2": {
+      "C": 9.154902491428649
+    },
+    "logistica_l1": {
+      "C": 7.61045932406855
+    },
+    "knn": {
+      "n_neighbors": 3,
+      "weights": "distance",
+      "p": 2
+    },
+    "svm": {
+      "C": 88.64947819116749,
+      "gamma": 0.024920354039946066
+    },
+    "arbol": {
+      "max_depth": 12,
+      "min_samples_leaf": 1
+    },
+    "bosque": {
+      "n_estimators": 291,
+      "max_depth": 18,
+      "min_samples_leaf": 3
+    },
+    "xgboost": {
+      "n_estimators": 180,
+      "max_depth": 8,
+      "learning_rate": 0.010753253804535767,
+      "subsample": 0.8621088316160196,
+      "colsample_bytree": 0.953252673486282,
+      "scale_pos_weight": 1.3068990905612556
+    },
+    "lightgbm": {
+      "n_estimators": 216,
+      "num_leaves": 64,
+      "learning_rate": 0.09674550913790271,
+      "subsample": 0.9995368857876763,
+      "colsample_bytree": 0.6559239719195135,
+      "min_child_samples": 18,
+      "scale_pos_weight": 6.754641613914414
+    },
+    "catboost": {
+      "iterations": 104,
+      "depth": 8,
+      "learning_rate": 0.19057174434080473,
+      "l2_leaf_reg": 2.9110519961044856,
+      "scale_pos_weight": 3.5455495408994087
+    },
+    "mlp": {
+      "capas": "32",
+      "alpha": 0.014101592734027307,
+      "learning_rate_init": 0.008621083988008798
+    }
+  }
+}

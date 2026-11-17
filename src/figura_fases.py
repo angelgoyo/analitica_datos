@@ -15,9 +15,9 @@ FASES = [
     ("1. Comprensión\ndel negocio", "Objetivo 1", True),
     ("2. Comprensión\nde los datos", "Objetivo 1", True),
     ("3. Preparación\nde los datos", "Objetivo 1", True),
-    ("4. Modelado", "Objetivo 2", False),
-    ("5. Evaluación", "Objetivo 2", False),
-    ("6. Despliegue\n(prototipo)", "Objetivos 3 y 4", False),
+    ("4. Modelado", "Objetivo 2", True),
+    ("5. Evaluación", "Objetivo 2", True),
+    ("6. Despliegue\n(prototipo)", "Objetivos 3 y 4", "parcial"),
 ]
 
 
@@ -29,12 +29,14 @@ def dibujar(ruta, fases=FASES):
     ancho, alto = 0.86, 0.62
     for i, (nombre, objetivo, hecha) in enumerate(fases):
         x = i + 0.07
-        fc, ec = ("#eaf2fc", AZUL) if hecha else ("#f4f4f2", GRIS)
+        parcial = hecha == "parcial"
+        fc, ec = ("#fdf1ea", NARANJA) if parcial else (("#eaf2fc", AZUL) if hecha else ("#f4f4f2", GRIS))
         ax.add_patch(FancyBboxPatch((x, 0.72), ancho, alto, boxstyle="round,pad=0.02,rounding_size=0.05", fc=fc, ec=ec, lw=1.1))
         ax.text(x + ancho / 2, 1.15, nombre, ha="center", va="center", fontsize=7, fontweight="bold", color=TINTA)
         ax.text(x + ancho / 2, 0.86, objetivo, ha="center", va="center", fontsize=6.3, color=TINTA)
-        ax.text(x + ancho / 2, 0.57, "Completada" if hecha else "Pendiente", ha="center", va="center",
-                fontsize=6.3, fontweight="bold", color=AZUL if hecha else GRIS)
+        estado = "Parcial: objetivo 3" if parcial else ("Completada" if hecha else "Pendiente")
+        ax.text(x + ancho / 2, 0.57, estado, ha="center", va="center",
+                fontsize=6.3, fontweight="bold", color=NARANJA if parcial else (AZUL if hecha else GRIS))
         if i < len(fases) - 1:
             ax.add_patch(FancyArrowPatch((x + ancho + 0.01, 1.03), (x + 1 - 0.01, 1.03), arrowstyle="-|>", mutation_scale=8, color=GRIS, lw=1))
     # arco de retroalimentación típico de CRISP-DM entre evaluación y comprensión del negocio

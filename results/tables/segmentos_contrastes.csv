@@ -1,0 +1,11 @@
+﻿Variable,Contraste,Modelo,Valor p
+Tipo de producto,Proporción de anómalas igual en todos los segmentos,—,0.7373555696111902
+Tipo de producto,Recall igual en todos los segmentos,Modelo base: valor Z ≥ 3,1.1632905958787548e-06
+Tipo de producto,Recall igual en todos los segmentos,Isolation Forest,0.04154796653929903
+Tipo de producto,Recall igual en todos los segmentos,DBSCAN,0.4509931096926638
+Tipo de producto,Recall igual en todos los segmentos,Autoencoder,0.07671546579638831
+Región,Proporción de anómalas igual en todos los segmentos,—,0.45080525354830925
+Región,Recall igual en todos los segmentos,Modelo base: valor Z ≥ 3,0.06552286434306556
+Región,Recall igual en todos los segmentos,Isolation Forest,0.15317583406739388
+Región,Recall igual en todos los segmentos,DBSCAN,0.10664256998814778
+Región,Recall igual en todos los segmentos,Autoencoder,0.11678595594449166

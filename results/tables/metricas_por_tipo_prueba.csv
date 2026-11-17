@@ -1,0 +1,46 @@
+﻿modelo,Modelo,tipo,n_tipo,detectadas,precision,recall,f1
+z_base,Modelo base: valor Z ≥ 3,Monto desproporcionado vs. ingreso,73,48,0.13675213675213677,0.6575342465753424,0.22641509433962265
+z_base,Modelo base: valor Z ≥ 3,Funcionario con aprobación atípica,76,66,0.17886178861788618,0.868421052631579,0.296629213483146
+z_base,Modelo base: valor Z ≥ 3,Tiempo de respuesta excesivo,78,76,0.20052770448548812,0.9743589743589743,0.33260393873085337
+isolation_forest,Isolation Forest,Monto desproporcionado vs. ingreso,73,35,0.20958083832335328,0.4794520547945205,0.29166666666666663
+isolation_forest,Isolation Forest,Funcionario con aprobación atípica,76,48,0.26666666666666666,0.631578947368421,0.37500000000000006
+isolation_forest,Isolation Forest,Tiempo de respuesta excesivo,78,16,0.10810810810810811,0.20512820512820512,0.1415929203539823
+dbscan,DBSCAN,Monto desproporcionado vs. ingreso,73,30,0.30303030303030304,0.410958904109589,0.34883720930232553
+dbscan,DBSCAN,Funcionario con aprobación atípica,76,54,0.43902439024390244,0.7105263157894737,0.542713567839196
+dbscan,DBSCAN,Tiempo de respuesta excesivo,78,43,0.38392857142857145,0.5512820512820513,0.4526315789473685
+autoencoder,Autoencoder,Monto desproporcionado vs. ingreso,73,24,0.14906832298136646,0.3287671232876712,0.20512820512820515
+autoencoder,Autoencoder,Funcionario con aprobación atípica,76,19,0.12179487179487179,0.25,0.16379310344827586
+autoencoder,Autoencoder,Tiempo de respuesta excesivo,78,63,0.315,0.8076923076923077,0.45323741007194246
+base_ingenuo,Base ingenuo (clase mayoritaria),Monto desproporcionado vs. ingreso,73,0,0.0,0.0,0.0
+base_ingenuo,Base ingenuo (clase mayoritaria),Funcionario con aprobación atípica,76,0,0.0,0.0,0.0
+base_ingenuo,Base ingenuo (clase mayoritaria),Tiempo de respuesta excesivo,78,0,0.0,0.0,0.0
+logistica_l2,Regresión logística (Ridge),Monto desproporcionado vs. ingreso,73,60,0.27906976744186046,0.821917808219178,0.41666666666666663
+logistica_l2,Regresión logística (Ridge),Funcionario con aprobación atípica,76,74,0.3231441048034934,0.9736842105263158,0.4852459016393443
+logistica_l2,Regresión logística (Ridge),Tiempo de respuesta excesivo,78,78,0.33476394849785407,1.0,0.5016077170418006
+logistica_l1,Regresión logística (Lasso),Monto desproporcionado vs. ingreso,73,60,0.2803738317757009,0.821917808219178,0.41811846689895465
+logistica_l1,Regresión logística (Lasso),Funcionario con aprobación atípica,76,74,0.32456140350877194,0.9736842105263158,0.4868421052631579
+logistica_l1,Regresión logística (Lasso),Tiempo de respuesta excesivo,78,77,0.3333333333333333,0.9871794871794872,0.49838187702265374
+knn,K vecinos más cercanos,Monto desproporcionado vs. ingreso,73,36,0.8780487804878049,0.4931506849315068,0.631578947368421
+knn,K vecinos más cercanos,Funcionario con aprobación atípica,76,65,0.9285714285714286,0.8552631578947368,0.8904109589041096
+knn,K vecinos más cercanos,Tiempo de respuesta excesivo,78,62,0.9253731343283582,0.7948717948717948,0.8551724137931035
+svm,Máquina de soporte vectorial (RBF),Monto desproporcionado vs. ingreso,73,46,0.7540983606557377,0.6301369863013698,0.6865671641791045
+svm,Máquina de soporte vectorial (RBF),Funcionario con aprobación atípica,76,75,0.8333333333333334,0.9868421052631579,0.9036144578313252
+svm,Máquina de soporte vectorial (RBF),Tiempo de respuesta excesivo,78,76,0.8351648351648352,0.9743589743589743,0.8994082840236687
+arbol,Árbol de decisión,Monto desproporcionado vs. ingreso,73,44,0.4835164835164835,0.6027397260273972,0.5365853658536586
+arbol,Árbol de decisión,Funcionario con aprobación atípica,76,76,0.6178861788617886,1.0,0.7638190954773869
+arbol,Árbol de decisión,Tiempo de respuesta excesivo,78,78,0.624,1.0,0.7684729064039408
+bosque,Bosque aleatorio,Monto desproporcionado vs. ingreso,73,43,0.8958333333333334,0.589041095890411,0.7107438016528926
+bosque,Bosque aleatorio,Funcionario con aprobación atípica,76,76,0.9382716049382716,1.0,0.9681528662420382
+bosque,Bosque aleatorio,Tiempo de respuesta excesivo,78,77,0.9390243902439024,0.9871794871794872,0.9625
+xgboost,XGBoost,Monto desproporcionado vs. ingreso,73,41,0.9534883720930233,0.5616438356164384,0.7068965517241379
+xgboost,XGBoost,Funcionario con aprobación atípica,76,76,0.9743589743589743,1.0,0.9870129870129869
+xgboost,XGBoost,Tiempo de respuesta excesivo,78,78,0.975,1.0,0.9873417721518987
+lightgbm,LightGBM,Monto desproporcionado vs. ingreso,73,46,0.92,0.6301369863013698,0.7479674796747968
+lightgbm,LightGBM,Funcionario con aprobación atípica,76,76,0.95,1.0,0.9743589743589743
+lightgbm,LightGBM,Tiempo de respuesta excesivo,78,78,0.9512195121951219,1.0,0.975
+catboost,CatBoost,Monto desproporcionado vs. ingreso,73,47,0.8867924528301887,0.6438356164383562,0.746031746031746
+catboost,CatBoost,Funcionario con aprobación atípica,76,76,0.926829268292683,1.0,0.9620253164556963
+catboost,CatBoost,Tiempo de respuesta excesivo,78,78,0.9285714285714286,1.0,0.962962962962963
+mlp,Red neuronal (MLP),Monto desproporcionado vs. ingreso,73,38,0.8260869565217391,0.5205479452054794,0.6386554621848739
+mlp,Red neuronal (MLP),Funcionario con aprobación atípica,76,75,0.9036144578313253,0.9868421052631579,0.9433962264150944
+mlp,Red neuronal (MLP),Tiempo de respuesta excesivo,78,76,0.9047619047619048,0.9743589743589743,0.9382716049382716

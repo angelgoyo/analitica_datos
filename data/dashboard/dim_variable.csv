@@ -1,0 +1,43 @@
+﻿id_variable,variable,nivel_explicacion,grupo,descripcion
+1,ingreso_mensual,solicitud,Financiero,Ingreso mensual del solicitante
+2,gastos_mensuales,solicitud,Financiero,Gastos mensuales del solicitante
+3,historial_mora_dias,solicitud,Financiero,Días de mora en el historial
+4,monto_solicitado,solicitud,Financiero,Monto solicitado
+5,razon_monto_ingreso,solicitud,Financiero,Monto solicitado sobre ingreso mensual
+6,capacidad_residual,solicitud,Financiero,Ingreso menos gastos mensuales
+7,cuota_estimada,solicitud,Financiero,Cuota mensual estimada
+8,razon_cuota_ingreso,solicitud,Financiero,Cuota estimada sobre ingreso
+9,razon_cuota_capacidad,solicitud,Financiero,Cuota estimada sobre capacidad residual
+10,razon_gasto_ingreso,solicitud,Financiero,Gastos sobre ingreso
+11,score_crediticio,solicitud,Financiero,Score crediticio
+12,numero_creditos_vigentes,solicitud,Financiero,Número de créditos vigentes
+13,nivel_endeudamiento,solicitud,Financiero,Nivel de endeudamiento
+14,plazo_solicitado_meses,solicitud,Financiero,Plazo solicitado (meses)
+15,tiempo_respuesta_dias,solicitud,Conductual,Días que tardó el funcionario en responder
+16,lag1_monto_func,solicitud,Conductual,Monto de la solicitud anterior del funcionario
+17,roll5_monto_func,solicitud,Conductual,Monto promedio de sus 5 solicitudes anteriores
+18,ratio_monto_vs_roll5,solicitud,Conductual,Monto frente al promedio de sus 5 solicitudes anteriores
+19,dias_desde_prev_func,solicitud,Conductual,Días desde su solicitud anterior
+20,roll10_aprob_func,solicitud,Conductual,Tasa de aprobación en sus 10 solicitudes anteriores
+21,roll10_tiempo_func,solicitud,Conductual,Tiempo de respuesta en sus 10 solicitudes anteriores
+22,roll10_excep_func,solicitud,Conductual,Tasa de excepciones en sus 10 solicitudes anteriores
+23,z_pares_tasa_aprobacion,solicitud,Conductual,Tasa de aprobación frente a sus pares (Z)
+24,z_pares_tasa_excepciones,solicitud,Conductual,Tasa de excepciones frente a sus pares (Z)
+25,z_pares_monto,solicitud,Conductual,Monto promedio frente a sus pares (Z)
+26,z_pares_razon_monto,solicitud,Conductual,Razón monto/ingreso frente a sus pares (Z)
+27,z_pares_tiempo,solicitud,Conductual,Tiempo de respuesta frente a sus pares (Z)
+28,z_monto_vs_historial_func,solicitud,Conductual,Monto frente a su propio historial (Z)
+29,edad,solicitud,Perfil del solicitante,Edad del solicitante
+30,estrato_vivienda,solicitud,Perfil del solicitante,Estrato de la vivienda
+31,antiguedad_laboral,solicitud,Perfil del solicitante,Antigüedad laboral
+32,mes_sin,solicitud,Calendario,Mes del año (seno)
+33,mes_cos,solicitud,Calendario,Mes del año (coseno)
+34,dia_semana,solicitud,Calendario,Día de la semana
+35,trimestre,solicitud,Calendario,Trimestre
+36,fin_de_mes,solicitud,Calendario,Solicitud en los últimos días del mes
+37,anio,solicitud,Calendario,Año de la solicitud
+38,z_tasa_aprobacion,funcionario,Conductual,Tasa de aprobación frente a sus pares (Z)
+39,z_tasa_excepciones,funcionario,Conductual,Tasa de excepciones frente a sus pares (Z)
+40,z_monto_promedio,funcionario,Financiero,Monto promedio solicitado frente a sus pares (Z)
+41,z_razon_monto_ingreso_prom,funcionario,Financiero,Razón monto/ingreso promedio frente a sus pares (Z)
+42,z_tiempo_resp_prom,funcionario,Conductual,Tiempo de respuesta promedio frente a sus pares (Z)

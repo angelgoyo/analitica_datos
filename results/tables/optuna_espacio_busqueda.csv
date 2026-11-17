@@ -1,0 +1,43 @@
+﻿Modelo,Hiperparámetro,Tipo,Rango de búsqueda
+Modelo base: valor Z ≥ 3,(sin hiperparámetros),—,—
+Isolation Forest,n_estimators,entero,100 a 300
+Isolation Forest,max_samples,real,0.2 a 1
+Isolation Forest,max_features,real,0.5 a 1
+DBSCAN,eps,real (escala log),3 a 10
+DBSCAN,min_samples,entero,5 a 50
+Autoencoder,cuello,entero,4 a 12
+Autoencoder,alpha,real (escala log),1e-05 a 0.1
+Base ingenuo (clase mayoritaria),(sin hiperparámetros),—,—
+Regresión logística (Ridge),C,real (escala log),0.001 a 100
+Regresión logística (Lasso),C,real (escala log),0.001 a 100
+K vecinos más cercanos,n_neighbors,entero,3 a 51
+K vecinos más cercanos,weights,categórico,"uniform, distance"
+K vecinos más cercanos,p,entero,1 a 2
+Máquina de soporte vectorial (RBF),C,real (escala log),0.1 a 100
+Máquina de soporte vectorial (RBF),gamma,real (escala log),0.0001 a 0.1
+Árbol de decisión,max_depth,entero,2 a 12
+Árbol de decisión,min_samples_leaf,entero,1 a 30
+Bosque aleatorio,n_estimators,entero,100 a 300
+Bosque aleatorio,max_depth,entero,3 a 20
+Bosque aleatorio,min_samples_leaf,entero,1 a 10
+XGBoost,n_estimators,entero,100 a 400
+XGBoost,max_depth,entero,2 a 8
+XGBoost,learning_rate,real (escala log),0.01 a 0.3
+XGBoost,subsample,real,0.6 a 1
+XGBoost,colsample_bytree,real,0.5 a 1
+XGBoost,scale_pos_weight,real,1 a 15
+LightGBM,n_estimators,entero,100 a 400
+LightGBM,num_leaves,entero,8 a 64
+LightGBM,learning_rate,real (escala log),0.01 a 0.3
+LightGBM,subsample,real,0.6 a 1
+LightGBM,colsample_bytree,real,0.5 a 1
+LightGBM,min_child_samples,entero,5 a 50
+LightGBM,scale_pos_weight,real,1 a 15
+CatBoost,iterations,entero,100 a 300
+CatBoost,depth,entero,3 a 8
+CatBoost,learning_rate,real (escala log),0.02 a 0.3
+CatBoost,l2_leaf_reg,real,1 a 10
+CatBoost,scale_pos_weight,real,1 a 15
+Red neuronal (MLP),capas,categórico,"32, 64, 64-32"
+Red neuronal (MLP),alpha,real (escala log),1e-05 a 0.1
+Red neuronal (MLP),learning_rate_init,real (escala log),0.001 a 0.01

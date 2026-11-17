@@ -1,0 +1,4 @@
+﻿Conjunto,Solicitudes,Anómalas,Marcadas,Aciertos,Precisión,Recall,F1,AUC-PR,AUC-ROC
+Entrenamiento,6650,530,499,208,0.4168,0.3925,0.4043,0.3972,0.8655
+Prueba,2850,227,235,88,0.3745,0.3877,0.381,0.3546,0.8549
+Total,9500,757,734,296,0.4033,0.391,0.397,0.3825,0.8624

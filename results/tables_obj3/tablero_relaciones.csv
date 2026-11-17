@@ -1,0 +1,17 @@
+﻿Tabla de hechos (lado N),Columna,Dimensión (lado 1),Clave,Cardinalidad,Dirección del filtro
+fact_solicitud,id_fecha,dim_fecha,id_fecha,Muchos a uno,De la dimensión al hecho
+fact_solicitud,id_funcionario,dim_funcionario,id_funcionario,Muchos a uno,De la dimensión al hecho
+fact_solicitud,id_producto,dim_producto,id_producto,Muchos a uno,De la dimensión al hecho
+fact_solicitud,id_region,dim_region,id_region,Muchos a uno,De la dimensión al hecho
+fact_solicitud,id_canal,dim_canal,id_canal,Muchos a uno,De la dimensión al hecho
+fact_solicitud,id_segmento,dim_segmento,id_segmento,Muchos a uno,De la dimensión al hecho
+fact_solicitud,id_estado,dim_estado,id_estado,Muchos a uno,De la dimensión al hecho
+fact_solicitud,id_variable_1,dim_variable,id_variable,Muchos a uno,De la dimensión al hecho
+fact_funcionario_riesgo,id_funcionario,dim_funcionario,id_funcionario,Muchos a uno,De la dimensión al hecho
+fact_shap_funcionario,id_funcionario,dim_funcionario,id_funcionario,Muchos a uno,De la dimensión al hecho
+fact_shap_funcionario,id_variable,dim_variable,id_variable,Muchos a uno,De la dimensión al hecho
+fact_shap_global,id_variable,dim_variable,id_variable,Muchos a uno,De la dimensión al hecho
+fact_validacion_sintetica,id_fecha,dim_fecha,id_fecha,Muchos a uno,De la dimensión al hecho
+fact_validacion_sintetica,id_funcionario,dim_funcionario,id_funcionario,Muchos a uno,De la dimensión al hecho
+fact_validacion_sintetica,id_producto,dim_producto,id_producto,Muchos a uno,De la dimensión al hecho
+fact_validacion_sintetica,id_region,dim_region,id_region,Muchos a uno,De la dimensión al hecho

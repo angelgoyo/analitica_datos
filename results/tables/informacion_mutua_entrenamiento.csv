@@ -1,0 +1,89 @@
+﻿Variable,Información mutua
+z_pares_monto,0.08043415351101202
+z_pares_tasa_aprobacion,0.0803437336439774
+z_pares_tasa_excepciones,0.07847282303717518
+z_pares_razon_monto,0.07703596432426463
+z_pares_tiempo,0.07546958192878961
+tiempo_respuesta_dias,0.07107701287729262
+roll10_excep_func,0.04258783580340153
+razon_cuota_ingreso,0.03913663091202113
+cuota_estimada,0.031086342860693117
+roll10_aprob_func,0.02703616172649692
+monto_solicitado,0.026182259167769395
+z_monto_vs_historial_func,0.02351572355627951
+razon_cuota_capacidad,0.019327257143895604
+razon_monto_ingreso,0.01836481938051926
+excepciones_politicas_internas_Sí,0.012420298332861845
+ratio_monto_vs_roll5,0.011957753133145399
+score_crediticio,0.006971387147084229
+garantias_ofrecidas_Codeudor,0.0052761998021650935
+antiguedad_laboral,0.005076483873923454
+mes_cos,0.005057767881968989
+estado_aprobacion_En estudio,0.0047654013017983665
+capacidad_residual,0.004352258708966827
+historial_crediticio_Regular,0.004351387796050155
+estado_civil_Divorciado,0.004322724412836543
+propiedad_vivienda_No,0.0041359762839880965
+excepciones_politicas_internas_No,0.003940242972722885
+nivel_educativo_Posgrado,0.003424256998223685
+region_Eje Cafetero,0.0029250863947010153
+estado_civil_Soltero,0.0028153744922172486
+segmento_cliente_Recurrente,0.002812556903746266
+tipo_empleo_Privado,0.0027660345420448262
+historial_crediticio_Bueno,0.002609501291523708
+garantias_ofrecidas_Ninguna,0.002603898146383621
+segmento_cliente_Preferencial,0.0024456076671739435
+estado_civil_Viudo,0.0023735994727513976
+canal_solicitud_Digital,0.002321854340017415
+segmento_cliente_Nuevo,0.0018638313990748667
+plazo_solicitado_meses,0.0018147643935977342
+roll5_monto_func,0.0018039154904856414
+garantias_ofrecidas_Inmueble,0.001790179798138558
+gastos_mensuales,0.0015374504393326216
+tipo_empleo_Independiente,0.0015103748357994107
+tipo_producto_financiero_Libre inversión,0.0011980483958247135
+tipo_producto_financiero_Consumo,0.0010358182858887233
+nivel_endeudamiento,0.001019482901665425
+canal_solicitud_Asesor comercial,0.0009146420781724895
+tipo_empleo_Formal,0.0008753372646952418
+genero_Femenino,0.000370904605981659
+mes_sin,0.00031403483429204293
+estrato_vivienda,8.726227249677976e-06
+edad,0.0
+numero_creditos_vigentes,0.0
+lag1_monto_func,0.0
+ingreso_mensual,0.0
+historial_mora_dias,0.0
+dias_desde_prev_func,0.0
+razon_gasto_ingreso,0.0
+verificacion_centrales_riesgo_Reportado,0.0
+verificacion_centrales_riesgo_Aprobado,0.0
+verificacion_centrales_riesgo_En seguimiento,0.0
+tipo_empleo_Público,0.0
+estado_civil_Unión libre,0.0
+propiedad_vivienda_Sí,0.0
+tipo_empleo_Informal,0.0
+roll10_tiempo_func,0.0
+trimestre,0.0
+nivel_educativo_Primaria,0.0
+genero_Masculino,0.0
+nivel_educativo_Secundaria,0.0
+nivel_educativo_Técnico,0.0
+nivel_educativo_Universitario,0.0
+estado_civil_Casado,0.0
+dia_semana,0.0
+anio,0.0
+fin_de_mes,0.0
+historial_crediticio_Malo,0.0
+tipo_producto_financiero_Hipotecario,0.0
+garantias_ofrecidas_Vehículo,0.0
+estado_aprobacion_Aprobado,0.0
+tipo_producto_financiero_Vehículo,0.0
+canal_solicitud_Sucursal física,0.0
+estado_aprobacion_Rechazado,0.0
+region_Bogotá,0.0
+region_Antioquia,0.0
+region_Otras,0.0
+region_Costa Caribe,0.0
+region_Santander,0.0
+region_Valle,0.0

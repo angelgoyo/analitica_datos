@@ -1,0 +1,52 @@
+﻿control,medida,fuente,valor_fuente,valor_tablero_python,diferencia,resultado
+Registros,fact_solicitud,Filas de dataset_creditos_sinteticos.csv,9500.0,9500.0,0.0,Coincide
+Registros,fact_funcionario_riesgo,Funcionarios distintos en la matriz,220.0,220.0,0.0,Coincide
+Registros,fact_validacion_sintetica,Filas de etiquetas_evaluacion.csv,9500.0,9500.0,0.0,Coincide
+Registros,fact_shap_funcionario,Funcionarios × variables del nivel funcionario,1100.0,1100.0,0.0,Coincide
+Registros,dim_fecha,Días entre 2020-01-01 y 2026-12-31,2557.0,2557.0,0.0,Coincide
+KPI K01,Total de solicitudes,Filas de solicitudes_limpias.csv,9500.0,9500.0,0.0,Coincide
+KPI K02,Monto solicitado total (COP),Suma de monto_solicitado en solicitudes_limpias.csv,261405253229.0,261405253229.0,0.0,Coincide
+KPI K03,Monto solicitado promedio (COP),Promedio de monto_solicitado en solicitudes_limpias.csv,27516342.445157893,27516342.445157893,0.0,Coincide
+KPI K04,Razón monto/ingreso mediana,Mediana de monto / ingreso en matriz_solicitud.csv,5.097661019367344,5.097661019367344,0.0,Coincide
+KPI K05,Tasa de aprobación,Solicitudes 'Aprobado' / total en solicitudes_limpias.csv,0.7152631578947368,0.7152631578947368,0.0,Coincide
+KPI K06,Tasa de excepciones,Solicitudes con 'Sí' en excepciones / total,0.08978947368421053,0.08978947368421053,0.0,Coincide
+KPI K07,Tiempo de respuesta promedio (días),Promedio en solicitudes_limpias.csv,9.305368421052632,9.305368421052632,0.0,Coincide
+KPI K08,Tiempo de respuesta P90 (días),Percentil 90 en solicitudes_limpias.csv,15.0,15.0,0.0,Coincide
+KPI K09,Solicitudes marcadas,Suma de marcada en fact_validacion_sintetica,734.0,734.0,0.0,Coincide
+KPI K10,% de solicitudes marcadas,Marcadas en memoria antes de exportar / filas de solicitudes_limpias.csv,0.07726315789473684,0.07726315789473684,0.0,Coincide
+KPI K11,Puntaje de riesgo promedio (solicitudes),Promedio del puntaje en memoria antes de exportar,50.316115789473685,50.316115789473685,0.0,Coincide
+KPI K12,Funcionarios evaluados,Funcionarios distintos en matriz_solicitud.csv,220.0,220.0,0.0,Coincide
+KPI K13,Funcionarios en riesgo alto o crítico,Marcados por el modelo en fact_funcionario_riesgo,17.0,17.0,0.0,Coincide
+KPI K14,% de funcionarios en riesgo alto o crítico,Funcionarios Alto o Crítico en memoria antes de exportar / funcionarios distintos en la matriz,0.07727272727272727,0.07727272727272727,0.0,Coincide
+KPI K15,Puntaje de riesgo promedio (funcionarios),Promedio del puntaje en memoria antes de exportar,50.22727272727272,50.22727272727272,0.0,Coincide
+KPI K16,Contribución SHAP media,Promedio de la contribución en memoria antes de exportar,7.272727273178635e-08,7.272727273178635e-08,0.0,Coincide
+KPI K17,Precisión de las marcas (validación sintética),Cálculo con etiquetas_evaluacion.csv,0.4032697547683924,0.4032697547683924,0.0,Coincide
+KPI K18,Recall de las marcas (validación sintética),Cálculo con etiquetas_evaluacion.csv,0.3910171730515192,0.3910171730515192,0.0,Coincide
+Indicadores por funcionario,Suma de solicitudes por funcionario,Suma de n_solicitudes en perfil_funcionario.csv,9500.0,9500.0,0.0,Coincide
+Indicadores por funcionario,Máxima diferencia de tasa de aprobación,perfil_funcionario.csv frente a fact_funcionario_riesgo,0.0,4.905660377918508e-07,4.905660377918508e-07,Coincide
+Indicadores por funcionario,Máxima diferencia de tiempo de respuesta promedio,perfil_funcionario.csv frente a fact_funcionario_riesgo,0.0,4.89361699607116e-07,4.89361699607116e-07,Coincide
+Indicadores por funcionario,Suma de marcadas por funcionario,Suma de marcada en fact_solicitud,734.0,734.0,0.0,Coincide
+Desglose por año,Solicitudes: 2020,Conteo de solicitudes con fecha en 2020,1411.0,1411.0,0.0,Coincide
+Desglose por año,Solicitudes: 2021,Conteo de solicitudes con fecha en 2021,1446.0,1446.0,0.0,Coincide
+Desglose por año,Solicitudes: 2022,Conteo de solicitudes con fecha en 2022,1438.0,1438.0,0.0,Coincide
+Desglose por año,Solicitudes: 2023,Conteo de solicitudes con fecha en 2023,1475.0,1475.0,0.0,Coincide
+Desglose por año,Solicitudes: 2024,Conteo de solicitudes con fecha en 2024,1492.0,1492.0,0.0,Coincide
+Desglose por año,Solicitudes: 2025,Conteo de solicitudes con fecha en 2025,1515.0,1515.0,0.0,Coincide
+Desglose por año,Solicitudes: 2026,Conteo de solicitudes con fecha en 2026,723.0,723.0,0.0,Coincide
+Desglose por canal_solicitud,Solicitudes: Asesor comercial,Conteo de canal_solicitud = Asesor comercial en solicitudes_limpias.csv,2363.0,2363.0,0.0,Coincide
+Desglose por canal_solicitud,Solicitudes: Digital,Conteo de canal_solicitud = Digital en solicitudes_limpias.csv,3816.0,3816.0,0.0,Coincide
+Desglose por canal_solicitud,Solicitudes: Sucursal física,Conteo de canal_solicitud = Sucursal física en solicitudes_limpias.csv,3321.0,3321.0,0.0,Coincide
+Desglose por estado_aprobacion,Solicitudes: Aprobado,Conteo de estado_aprobacion = Aprobado en solicitudes_limpias.csv,6795.0,6795.0,0.0,Coincide
+Desglose por estado_aprobacion,Solicitudes: En estudio,Conteo de estado_aprobacion = En estudio en solicitudes_limpias.csv,1061.0,1061.0,0.0,Coincide
+Desglose por estado_aprobacion,Solicitudes: Rechazado,Conteo de estado_aprobacion = Rechazado en solicitudes_limpias.csv,1644.0,1644.0,0.0,Coincide
+Desglose por region,Solicitudes: Antioquia,Conteo de region = Antioquia en solicitudes_limpias.csv,1880.0,1880.0,0.0,Coincide
+Desglose por region,Solicitudes: Bogotá,Conteo de region = Bogotá en solicitudes_limpias.csv,2620.0,2620.0,0.0,Coincide
+Desglose por region,Solicitudes: Costa Caribe,Conteo de region = Costa Caribe en solicitudes_limpias.csv,1243.0,1243.0,0.0,Coincide
+Desglose por region,Solicitudes: Eje Cafetero,Conteo de region = Eje Cafetero en solicitudes_limpias.csv,749.0,749.0,0.0,Coincide
+Desglose por region,Solicitudes: Otras,Conteo de region = Otras en solicitudes_limpias.csv,757.0,757.0,0.0,Coincide
+Desglose por region,Solicitudes: Santander,Conteo de region = Santander en solicitudes_limpias.csv,871.0,871.0,0.0,Coincide
+Desglose por region,Solicitudes: Valle,Conteo de region = Valle en solicitudes_limpias.csv,1380.0,1380.0,0.0,Coincide
+Desglose por tipo_producto_financiero,Solicitudes: Consumo,Conteo de tipo_producto_financiero = Consumo en solicitudes_limpias.csv,4382.0,4382.0,0.0,Coincide
+Desglose por tipo_producto_financiero,Solicitudes: Hipotecario,Conteo de tipo_producto_financiero = Hipotecario en solicitudes_limpias.csv,1433.0,1433.0,0.0,Coincide
+Desglose por tipo_producto_financiero,Solicitudes: Libre inversión,Conteo de tipo_producto_financiero = Libre inversión en solicitudes_limpias.csv,2293.0,2293.0,0.0,Coincide
+Desglose por tipo_producto_financiero,Solicitudes: Vehículo,Conteo de tipo_producto_financiero = Vehículo en solicitudes_limpias.csv,1392.0,1392.0,0.0,Coincide

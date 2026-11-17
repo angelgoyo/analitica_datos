@@ -1,0 +1,26 @@
+﻿Variable,Grupo,Importancia en marcadas,Importancia en todas,% de la importancia en marcadas
+Monto frente a su propio historial (Z),Conductual,0.3594,0.1516,9.3
+Cuota estimada sobre capacidad residual,Financiero,0.2676,0.0942,6.9
+Cuota estimada sobre ingreso,Financiero,0.2384,0.1031,6.2
+Ingreso menos gastos mensuales,Financiero,0.2006,0.0723,5.2
+Ingreso mensual del solicitante,Financiero,0.1927,0.1175,5.0
+Monto solicitado sobre ingreso mensual,Financiero,0.1816,0.0938,4.7
+Cuota mensual estimada,Financiero,0.1664,0.0993,4.3
+Tasa de aprobación frente a sus pares (Z),Conductual,0.1636,0.1162,4.2
+Estrato de la vivienda,Perfil del solicitante,0.1592,0.1412,4.1
+Tasa de excepciones frente a sus pares (Z),Conductual,0.1535,0.0818,4.0
+Gastos sobre ingreso,Financiero,0.1504,0.0966,3.9
+Plazo solicitado (meses),Financiero,0.1473,0.1206,3.8
+Gastos mensuales del solicitante,Financiero,0.1458,0.0976,3.8
+Razón monto/ingreso frente a sus pares (Z),Conductual,0.1386,0.1187,3.6
+Monto solicitado,Financiero,0.1356,0.0837,3.5
+Monto promedio frente a sus pares (Z),Conductual,0.1222,0.1018,3.2
+Número de créditos vigentes,Financiero,0.1138,0.1034,2.9
+Antigüedad laboral,Perfil del solicitante,0.1104,0.1055,2.9
+Días que tardó el funcionario en responder,Conductual,0.1096,0.0808,2.8
+Score crediticio,Financiero,0.1067,0.1044,2.8
+Nivel de endeudamiento,Financiero,0.1066,0.1171,2.8
+Edad del solicitante,Perfil del solicitante,0.1052,0.1039,2.7
+Año de la solicitud,Calendario,0.0981,0.1018,2.5
+Tiempo de respuesta frente a sus pares (Z),Conductual,0.0962,0.0904,2.5
+Días de mora en el historial,Financiero,0.0911,0.0887,2.4

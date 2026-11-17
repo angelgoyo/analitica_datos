@@ -1,0 +1,19 @@
+﻿Id,Indicador,Tipo,Nivel,Fórmula,Medida DAX,Valor global
+K01,Total de solicitudes,Volumen,Solicitud,Número de solicitudes del contexto de filtro,COUNTROWS(fact_solicitud),9.500
+K02,Monto solicitado total (COP),Financiero,Solicitud,Suma del monto solicitado,SUM(fact_solicitud[monto_solicitado]),261.405.253.229
+K03,Monto solicitado promedio (COP),Financiero,Solicitud,Promedio del monto solicitado,AVERAGE(fact_solicitud[monto_solicitado]),27.516.342
+K04,Razón monto/ingreso mediana,Financiero,Solicitud,Mediana de monto solicitado / ingreso mensual,MEDIAN(fact_solicitud[razon_monto_ingreso]),"5,10"
+K05,Tasa de aprobación,Conductual,Solicitud,Solicitudes aprobadas / total de solicitudes,"DIVIDE(SUM(fact_solicitud[aprobada]), [Total de solicitudes])","71,5 %"
+K06,Tasa de excepciones,Conductual,Solicitud,Solicitudes con excepción a políticas / total de solicitudes,"DIVIDE(SUM(fact_solicitud[excepcion]), [Total de solicitudes])","9,0 %"
+K07,Tiempo de respuesta promedio (días),Conductual,Solicitud,Promedio de días de respuesta,AVERAGE(fact_solicitud[tiempo_respuesta_dias]),"9,31"
+K08,Tiempo de respuesta P90 (días),Conductual,Solicitud,Percentil 90 de los días de respuesta,"PERCENTILE.INC(fact_solicitud[tiempo_respuesta_dias], 0.9)","15,00"
+K09,Solicitudes marcadas,Riesgo,Solicitud,"Solicitudes con puntaje en el 7,5 % superior del entrenamiento",SUM(fact_solicitud[marcada]),734
+K10,% de solicitudes marcadas,Riesgo,Solicitud,Solicitudes marcadas / total de solicitudes,"DIVIDE([Solicitudes marcadas], [Total de solicitudes])","7,7 %"
+K11,Puntaje de riesgo promedio (solicitudes),Riesgo,Solicitud,Promedio del puntaje de riesgo (0 a 100),AVERAGE(fact_solicitud[puntaje_riesgo]),"50,32"
+K12,Funcionarios evaluados,Volumen,Funcionario,Número de funcionarios del contexto de filtro,COUNTROWS(fact_funcionario_riesgo),220
+K13,Funcionarios en riesgo alto o crítico,Riesgo,Funcionario,Funcionarios con nivel Alto o Crítico,"CALCULATE(COUNTROWS(fact_funcionario_riesgo), dim_funcionario[nivel_riesgo] IN {""Alto"", ""Crítico""})",17
+K14,% de funcionarios en riesgo alto o crítico,Riesgo,Funcionario,Funcionarios Alto o Crítico / funcionarios evaluados,"DIVIDE([Funcionarios en riesgo alto o crítico], [Funcionarios evaluados])","7,7 %"
+K15,Puntaje de riesgo promedio (funcionarios),Riesgo,Funcionario,Promedio del puntaje de riesgo del funcionario (0 a 100),AVERAGE(fact_funcionario_riesgo[puntaje_riesgo]),"50,23"
+K16,Contribución SHAP media,Explicación,Funcionario,Promedio de la contribución de la variable al puntaje del funcionario,AVERAGE(fact_shap_funcionario[contribucion]),"0,00"
+K17,Precisión de las marcas (validación sintética),Validación,Solicitud,Marcadas que son anómalas / marcadas,"DIVIDE(CALCULATE(COUNTROWS(fact_validacion_sintetica), fact_validacion_sintetica[marcada] = 1, fact_validacion_sintetica[es_anomalia] = 1), CALCULATE(COUNTROWS(fact_validacion_sintetica), fact_validacion_sintetica[marcada] = 1))","40,3 %"
+K18,Recall de las marcas (validación sintética),Validación,Solicitud,Anómalas que quedaron marcadas / anómalas,"DIVIDE(CALCULATE(COUNTROWS(fact_validacion_sintetica), fact_validacion_sintetica[marcada] = 1, fact_validacion_sintetica[es_anomalia] = 1), SUM(fact_validacion_sintetica[es_anomalia]))","39,1 %"

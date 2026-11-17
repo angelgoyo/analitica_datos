@@ -1,0 +1,5 @@
+﻿Modelo,Ajuste,F1 dentro de muestra (sección 10),Detectados dentro (de 6),"F1 fuera de muestra, mediana","F1 fuera de muestra, mín. a máx.",IC 95 % del F1 (repetición 1),"Detectados fuera, mediana (de 6)","Marcados fuera, mediana",Precision,Recall
+Modelo base: valor Z ≥ 3,|Z| ≥ 3,0.6666666666666666,4,0.6666666666666666,0.62 a 0.77,0.25 a 0.92,4.0,7.0,0.6458333333333333,0.6666666666666666
+Isolation Forest,"contaminación 7,5 %",0.5217391304347826,6,0.49,0.43 a 0.57,0.27 a 0.80,6.0,18.5,0.32456140350877194,1.0
+Autoencoder,"contaminación 7,5 %",0.5217391304347826,6,0.48,0.41 a 0.63,0.23 a 0.74,6.0,19.0,0.3157894736842105,1.0
+DBSCAN,"eps = 1,5",0.631578947368421,6,0.42857142857142855,0.38 a 0.50,0.17 a 0.65,6.0,22.0,0.2727272727272727,1.0

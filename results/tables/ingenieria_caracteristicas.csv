@@ -1,0 +1,22 @@
+﻿Variable o paso,Fórmula o definición,Justificación,Tipo,¿Aprende parámetros?
+razon_monto_ingreso,monto_solicitado / ingreso_mensual,Montos desproporcionados frente al ingreso son la señal más directa de aprobación atípica.,Razón financiera,No
+razon_gasto_ingreso,gastos_mensuales / ingreso_mensual,Holgura financiera del solicitante.,Razón financiera,No
+capacidad_residual,ingreso_mensual − gastos_mensuales,Capacidad de pago; negativa indica gastos mayores que el ingreso.,Razón financiera,No
+cuota_estimada,monto_solicitado / plazo_solicitado_meses,Pago mensual aproximado exigido (sin intereses).,Razón financiera,No
+razon_cuota_ingreso,cuota_estimada / ingreso_mensual,Carga de la cuota sobre el ingreso.,Razón financiera,No
+razon_cuota_capacidad,cuota_estimada / capacidad_residual (si es positiva),Carga de la cuota sobre la capacidad real de pago.,Razón financiera,No
+"mes_sin, mes_cos","sen(2π·mes/12), cos(2π·mes/12)",Codifican el mes de forma cíclica (diciembre queda cerca de enero) para capturar estacionalidad.,Calendario,No
+"dia_semana, trimestre, fin_de_mes, anio","día de la semana (0-6), trimestre (1-4), 1 si el día del mes ≥ 25, año",Patrones de calendario: cierres de mes y de trimestre suelen concentrar excepciones.,Calendario,No
+lag1_monto_func,monto de la solicitud anterior del mismo funcionario,Rezago de orden 1: compara con lo que el funcionario acababa de aprobar.,Rezago,No (causal)
+roll5_monto_func,media del monto de las 5 solicitudes previas del funcionario,Ventana móvil: nivel reciente de montos del funcionario.,Ventana móvil,No (causal)
+ratio_monto_vs_roll5,monto_solicitado / roll5_monto_func,Salto del monto frente a su historia reciente.,Ventana móvil,No (causal)
+dias_desde_prev_func,días desde la solicitud anterior del mismo funcionario,Cambios de ritmo de trabajo del funcionario.,Rezago,No (causal)
+roll10_aprob_func,tasa de aprobación de las 10 solicitudes previas del funcionario,Racha reciente de aprobaciones.,Ventana móvil,No (causal)
+roll10_tiempo_func,tiempo de respuesta medio de las 10 solicitudes previas,Racha reciente de tiempos de respuesta.,Ventana móvil,No (causal)
+roll10_excep_func,tasa de excepciones de las 10 solicitudes previas,Racha reciente de excepciones a políticas.,Ventana móvil,No (causal)
+z_pares_* (5),"(indicador del funcionario − media de pares) / desviación de pares, con indicador = tasa de aprobación, tasa de excepciones, monto promedio, razón monto/ingreso promedio y tiempo promedio",Distancia del funcionario frente a sus compañeros; es la señal central del comportamiento atípico a nivel de funcionario.,Desviación frente a pares,Sí: solo con entrenamiento
+z_monto_vs_historial_func,(monto − media del monto del funcionario) / desviación del monto del funcionario,Cuánto se aparta esta solicitud de lo que el funcionario suele aprobar.,Desviación frente a pares,Sí: solo con entrenamiento
+Codificación,One-hot de 14 variables categóricas (categorías nuevas se ignoran),Los modelos necesitan entradas numéricas; one-hot no impone orden entre categorías.,Codificación,Sí: solo con entrenamiento
+Transformación,logaritmo con signo en 13 variables de cola pesada,"Ingreso, monto y cuotas tienen asimetría fuerte; el logaritmo evita que dominen el escalado.",Transformación,No
+Escalado,"StandardScaler (media 0, desviación 1) tras imputar la mediana","Necesario para modelos lineales, KNN, SVM, red neuronal y detección por distancia.",Escalado,Sí: solo con entrenamiento
+Selección,"SelectPercentile con información mutua, 70 % de las variables (solo modelos supervisados)",Descarta variables sin relación con la etiqueta; se omite en los modelos no supervisados porque requeriría la etiqueta.,Selección,Sí: solo con entrenamiento

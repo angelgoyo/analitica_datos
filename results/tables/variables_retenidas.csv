@@ -1,0 +1,89 @@
+﻿Variable,Retenida
+ingreso_mensual,True
+gastos_mensuales,True
+historial_mora_dias,True
+monto_solicitado,True
+razon_monto_ingreso,True
+capacidad_residual,True
+cuota_estimada,True
+razon_cuota_ingreso,True
+razon_cuota_capacidad,True
+lag1_monto_func,True
+roll5_monto_func,True
+ratio_monto_vs_roll5,True
+dias_desde_prev_func,True
+edad,True
+estrato_vivienda,True
+antiguedad_laboral,True
+score_crediticio,True
+numero_creditos_vigentes,True
+nivel_endeudamiento,True
+plazo_solicitado_meses,True
+tiempo_respuesta_dias,True
+razon_gasto_ingreso,True
+mes_sin,True
+mes_cos,True
+dia_semana,True
+trimestre,True
+fin_de_mes,True
+anio,True
+roll10_aprob_func,True
+roll10_tiempo_func,False
+roll10_excep_func,True
+genero_Femenino,True
+genero_Masculino,False
+nivel_educativo_Posgrado,True
+nivel_educativo_Primaria,False
+nivel_educativo_Secundaria,False
+nivel_educativo_Técnico,False
+nivel_educativo_Universitario,False
+estado_civil_Casado,False
+estado_civil_Divorciado,True
+estado_civil_Soltero,True
+estado_civil_Unión libre,False
+estado_civil_Viudo,True
+propiedad_vivienda_No,True
+propiedad_vivienda_Sí,False
+tipo_empleo_Formal,True
+tipo_empleo_Independiente,True
+tipo_empleo_Informal,False
+tipo_empleo_Privado,True
+tipo_empleo_Público,False
+historial_crediticio_Bueno,True
+historial_crediticio_Malo,False
+historial_crediticio_Regular,True
+verificacion_centrales_riesgo_Aprobado,False
+verificacion_centrales_riesgo_En seguimiento,False
+verificacion_centrales_riesgo_Reportado,False
+garantias_ofrecidas_Codeudor,True
+garantias_ofrecidas_Inmueble,True
+garantias_ofrecidas_Ninguna,True
+garantias_ofrecidas_Vehículo,False
+tipo_producto_financiero_Consumo,True
+tipo_producto_financiero_Hipotecario,False
+tipo_producto_financiero_Libre inversión,True
+tipo_producto_financiero_Vehículo,False
+estado_aprobacion_Aprobado,False
+estado_aprobacion_En estudio,True
+estado_aprobacion_Rechazado,False
+excepciones_politicas_internas_No,True
+excepciones_politicas_internas_Sí,True
+canal_solicitud_Asesor comercial,True
+canal_solicitud_Digital,True
+canal_solicitud_Sucursal física,False
+segmento_cliente_Nuevo,True
+segmento_cliente_Preferencial,True
+segmento_cliente_Recurrente,True
+region_Antioquia,False
+region_Bogotá,False
+region_Costa Caribe,False
+region_Eje Cafetero,True
+region_Otras,False
+region_Santander,False
+region_Valle,False
+z_pares_tasa_aprobacion,True
+z_pares_tasa_excepciones,True
+z_pares_monto,True
+z_pares_razon_monto,True
+z_pares_tiempo,True
+z_monto_vs_historial_func,True

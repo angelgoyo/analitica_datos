@@ -1,0 +1,16 @@
+﻿Modelo,tn,fp,fn,tp
+Modelo base: valor Z ≥ 3,2320,303,37,190
+Isolation Forest,2491,132,128,99
+DBSCAN,2554,69,100,127
+Autoencoder,2486,137,121,106
+Base ingenuo (clase mayoritaria),2623,0,227,0
+Regresión logística (Ridge),2468,155,15,212
+Regresión logística (Lasso),2469,154,16,211
+K vecinos más cercanos,2618,5,64,163
+Máquina de soporte vectorial (RBF),2608,15,30,197
+Árbol de decisión,2576,47,29,198
+Bosque aleatorio,2618,5,31,196
+XGBoost,2621,2,32,195
+LightGBM,2619,4,27,200
+CatBoost,2617,6,26,201
+Red neuronal (MLP),2615,8,38,189

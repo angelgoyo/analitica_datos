@@ -1,0 +1,4 @@
+﻿id_estado,estado_aprobacion,es_aprobado
+1,Aprobado,1
+2,En estudio,0
+3,Rechazado,0
